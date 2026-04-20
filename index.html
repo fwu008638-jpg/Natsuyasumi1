@@ -1,0 +1,2320 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>夏休み日本旅行攻略</title>
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --paper: #fffdf8;
+      --ink: #1f1d1a;
+      --muted: #6f675d;
+      --line: #ddd4c6;
+      --accent: #a73f24;
+      --accent-soft: #f3ddd4;
+      --shadow: 0 20px 50px rgba(46, 33, 20, 0.08);
+      --radius: 18px;
+      --navw: 280px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(167, 63, 36, 0.08), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(194, 145, 83, 0.12), transparent 24%),
+        var(--bg);
+      line-height: 1.8;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .layout {
+      width: min(1440px, calc(100% - 40px));
+      margin: 28px auto;
+      display: grid;
+      grid-template-columns: var(--navw) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 20px;
+      padding: 22px 20px;
+      background: rgba(255, 253, 248, 0.88);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-height: calc(100vh - 40px);
+      overflow: auto;
+    }
+    .sidebar h1 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
+    .sidebar p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .toc {
+      display: grid;
+      gap: 8px;
+    }
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 10px;
+      color: var(--ink);
+      background: transparent;
+      transition: background .18s ease, transform .18s ease;
+      font-size: 0.95rem;
+    }
+    .toc a:hover {
+      background: var(--accent-soft);
+      transform: translateX(2px);
+      text-decoration: none;
+    }
+    .content {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 40px min(4.6vw, 54px);
+      overflow: hidden;
+    }
+    .hero {
+      margin-bottom: 28px;
+      padding: 28px 28px 22px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(167, 63, 36, 0.12), rgba(194, 145, 83, 0.10)),
+        #fff8f2;
+      border: 1px solid #ead8c8;
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    h2 {
+      margin: 40px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.7rem;
+      line-height: 1.3;
+    }
+    h3 {
+      margin: 28px 0 12px;
+      font-size: 1.18rem;
+      line-height: 1.4;
+    }
+    p, ul, ol {
+      margin: 0 0 14px;
+    }
+    ul, ol {
+      padding-left: 1.4rem;
+    }
+    li + li {
+      margin-top: 4px;
+    }
+    strong {
+      font-weight: 700;
+    }
+    mark {
+      background: linear-gradient(transparent 35%, #f8e5a2 35%);
+      color: inherit;
+      padding: 0 2px;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background: var(--line);
+      margin: 34px 0;
+    }
+    blockquote {
+      margin: 16px 0;
+      padding: 12px 16px;
+      border-left: 4px solid #d2b48c;
+      background: #fbf7f0;
+      color: #544d45;
+      border-radius: 0 12px 12px 0;
+    }
+    code {
+      font-family: "Cascadia Code", "JetBrains Mono", monospace;
+      font-size: 0.92em;
+      padding: 0.15em 0.45em;
+      background: #f2ece4;
+      border-radius: 6px;
+    }
+    .media {
+      margin: 18px 0 22px;
+      text-align: center;
+    }
+    .media img {
+      width: auto;
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 18px 36px rgba(36, 28, 20, 0.12);
+      border: 1px solid rgba(100, 80, 60, 0.08);
+      background: #fff;
+    }
+    .callout {
+      margin: 20px 0;
+      border: 1px solid #d8c7b5;
+      border-radius: 16px;
+      background: #fcfaf6;
+      overflow: hidden;
+    }
+    .callout > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 18px;
+      font-weight: 700;
+      background: #f5ede2;
+      border-bottom: 1px solid #eadbc9;
+    }
+    .callout[open] > summary {
+      color: var(--accent);
+    }
+    .callout > :not(summary) {
+      padding: 18px 18px 4px;
+    }
+    .callout > summary::-webkit-details-marker {
+      display: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.96rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    th {
+      background: #f5ede2;
+      text-align: left;
+    }
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+      }
+      .content {
+        padding: 28px 18px;
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1>夏休み日本旅行攻略</h1>
+      <p>由 Markdown 攻略生成的静态网页版本，适合直接打开阅读或继续托管发布。</p>
+      <nav class="toc">
+        <a href="#交通总费用总览-按当前方案-概算">交通总费用总览（按当前方案 / 概算）</a>
+<a href="#住宿总费用总览-按当前方案-人均概算">住宿总费用总览（按当前方案 / 人均概算）</a>
+<a href="#餐饮总费用总览-按当前方案-概算">餐饮总费用总览（按当前方案 / 概算）</a>
+<a href="#门票总费用总览-按当前方案-概算">门票总费用总览（按当前方案 / 概算）</a>
+<a href="#综合预算总览-交通-住宿-餐饮-门票">综合预算总览（交通 + 住宿 + 餐饮 + 门票）</a>
+      </nav>
+    </aside>
+    <main class="content">
+      <section class="hero">
+        <h1>夏休み日本旅行攻略</h1>
+        <p>包含每日行程、交通、住宿、餐饮、门票与综合预算汇总。</p>
+      </section>
+      <h3 id="注意">注意：</h3>
+<p>1、酒店如果不能提前寄存行李的，则将行李寄存在车站；<br>
+2、<strong>这次行程里最容易出问题的，不是普通市内交通，而是少数几个“强预约 / 强天气 / 强时刻表”项目：</strong><br>
+- <code>神户 ➔ 高松</code> 高速巴士<br>
+- <code>广岛 ➔ 博多</code> 夜巴<br>
+- <code>宫崎 ➔ 福冈 Phoenix号</code><br>
+- <code>博多 ➔ 日田</code> 的 <code>由布院之森</code><br>
+- <code>友ヶ島汽船</code><br>
+- <code>8.15 阿苏 / 高森 / 火口线</code><br>
+这些都要在出发前再二次确认。<br>
+3、<strong>学生证不要默认哪里都能用。</strong><br>
+JR / 高速巴士里提到的“学割”很多只认<strong>日本国内学校</strong>的在读学生证件，中国学校学生证通常<strong>不能直接用</strong>。<br>
+4、<strong>8.15 阿苏这一天是整篇里最不稳定的一天。</strong><br>
+火山口开放、地方巴士、南阿苏铁道任何一段出问题，都要接受删点，不要硬全都要。<br>
+5、<strong>8.20 福冈机场是国际线回国，不是国内线。</strong><br>
+最晚 <strong>16:00 - 16:30</strong> 到国际线，且要把国内线 / 国际线不是同一栋楼这件事一起算进去。</p>
+<h3 id="2-票券和周游券等优惠信息-需要提前查询好">2、票券和周游券等优惠信息 需要提前查询好</h3>
+<h3 id="购买日起90天内兑换">购买日起90天内兑换</h3>
+<h3 id="建议在官网直接购买">建议在官网直接购买</h3>
+<h3 id="长途巴士开售时间也要提前盯">长途巴士开售时间也要提前盯</h3>
+<p>这次行程里需要提前买票 / 预约的几条长途巴士，基本都在<strong>乘车日前 1 个月左右</strong>开售，但并不完全一样：<br>
+1）<strong>神户 ➔ 高松 高速巴士</strong>：通常是 <strong>1个月又1天前</strong><br>
+2）<strong>广岛 ➔ 博多 夜巴</strong>：通常是 <strong>1个月又1天前</strong><br>
+3）<strong>宫崎 ➔ 福冈 Phoenix号</strong>：通常是 <strong>1个月前</strong><br>
+所以稳妥起见，相关长途巴士建议从<strong>乘车日前 1个月又1天</strong>就开始盯票。</p>
+<p>【铁道系列：北九州JR Pass与由布院之森购买及兑换完整攻略 | 日本电车 | 九州福冈博多 | 北九州JR Pass | 由布院之森】 https://www.bilibili.com/video/BV1cm421N7zK/?share_source=copy_web&amp;vd_source=b0caf3d2f2fd355cbc150dae75815008<br>
+<mark>以下截图仅作票券资料备忘，当前行程是否购买以文中各天“交通情况整理”为准</mark></p>
+<figure class="media"><img src="Attachment/046646e92ef48afd2ffe7f89d8bfa115.jpg" alt="046646e92ef48afd2ffe7f89d8bfa115" loading="lazy" style="max-width:min(100%, 109px);"></figure>
+<h3 id="注意">注意：</h3>
+<p>1）<figure class="media"><img src="Attachment/Pasted image 20260417220905.png" alt="Pasted image 20260417220905" loading="lazy" style="max-width:min(100%, 697px);"></figure><br>
+2）</p>
+<figure class="media"><img src="Attachment/65db6abd-7366-4dd5-8692-ac7cbd3e6985.png" alt="65db6abd-7366-4dd5-8692-ac7cbd3e6985" loading="lazy" style="max-width:min(100%, 450px);"></figure>
+
+<p><mark>全九州 JR Pass 票券截图备忘</mark></p>
+<figure class="media"><img src="Attachment/822961ada09adc45cd4bb9641042a127.jpg" alt="822961ada09adc45cd4bb9641042a127" loading="lazy" style="max-width:min(100%, 208px);"></figure>
+
+<h3 id="3-到一座新的城市-也可以多尝试便利店里的食物">3、到一座新的城市，也可以多尝试便利店里的食物</h3>
+<p>4、到达的那天 <strong>8月5日是周三</strong>，中间有<strong>8、9 以及15、16两个周末</strong><br>
+这两个周末的住宿问题需要考虑好</p>
+<figure class="media"><img src="Attachment/Pasted image 20260415234228.png" alt="Pasted image 20260415234228" loading="lazy" style="max-width:min(100%, 194px);"></figure>
+
+<h3 id="5-夏天天热-建议带一个帽子-带一条毛巾">5、夏天天热，建议带一个帽子，带一条毛巾</h3>
+<h3 id="6-记得带学生证-但买票前先确认适用条件-打卡大学时也可能会用到">6、记得带学生证，但买票前先确认适用条件；打卡大学时也可能会用到。</h3>
+<figure class="media"><img src="Attachment/f4814198ae8b62f2e93a35e1ddf89389.jpg" alt="f4814198ae8b62f2e93a35e1ddf89389" loading="lazy" style="max-width:min(100%, 176px);"></figure>
+
+<p>8:40落地关西机场，办好入境手续后，去大阪站有两个更实用的选择：<br>
+1）<strong>舒服版：JR HARUKA</strong><br>
+到大阪站大约 <strong>45-50min</strong>，座位和行李体验更好，单程按 <strong>1800円</strong> 预算。<br>
+2）<strong>省钱版：JR 关空快速（Kansai Airport Rapid Service）</strong><br>
+到大阪站大约 <strong>65-75min</strong>，单程按 <strong>1190-1210円</strong> 预算，适合不介意多花一点时间来换更低票价。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418232811.png" alt="Pasted image 20260418232811" loading="lazy" style="max-width:min(100%, 273px);"></figure>
+
+<p><strong>一、大阪  Day1</strong>  <mark>（8.5 水曜日</mark></p>
+<h3 id="考虑到飞机和去住处寄存行李的问题-行程安排从中午12点开始">考虑到飞机和去住处寄存行李的问题，行程安排从中午12点开始</h3>
+<h3 id="1-大阪市役所">1、大阪市役所</h3>
+<p><a href="https://www.bilibili.com/video/BV1ux4y1w733/?spm_id_from=333.1387.search.video_card.click&amp;vd_source=6872280dc2ef82830aeb916ca7288a22">探店大阪市政府食堂，日本服务员阿姨夸我真能吃！_哔哩哔哩_bilibili</a><br>
+午餐时间11：00-15：00</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419183714.png" alt="Pasted image 20260419183714" loading="lazy" style="max-width:min(100%, 234px);"></figure>
+<p>1200円左右可以吃的很饱了；<br>
+落地直奔市政府，谁懂~</p>
+<p>然后前往大阪城，大概30min</p>
+<h3 id="2-大阪城">2、大阪城</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419184348.png" alt="Pasted image 20260419184348" loading="lazy" style="max-width:min(100%, 283px);"></figure>
+<p>猴子的老家，本来不想进去的，但是<strong>为了真田幸村~</strong></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419184602.png" alt="Pasted image 20260419184602" loading="lazy" style="max-width:min(100%, 462px);"></figure>
+<p><mark>学生票600，带学生证！</mark><br>
+<a href="https://www.osakacastle.net/">大阪城天守閣</a></p>
+<h3 id="交通规划">交通规划</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419185827.png" alt="Pasted image 20260419185827" loading="lazy" style="max-width:min(100%, 205px);"></figure>
+
+<h3 id="1-天守阁">1)天守阁</h3>
+<p>5楼是专门介绍大坂之役的展厅~</p>
+<h3 id="2-玉造稲荷神社">2)玉造稲荷神社</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419185015.png" alt="Pasted image 20260419185015" loading="lazy" style="max-width:min(100%, 259px);"></figure>
+<p>这里有真田幸村父子曾居住过的遗迹石碑，还有他们曾用过的“缘分之井”。</p>
+<h3 id="3-真田丸遗迹">3)真田丸遗迹</h3>
+<p>步行约1.5km到达</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419184742.png" alt="Pasted image 20260419184742" loading="lazy" style="max-width:min(100%, 246px);"></figure>
+
+<h3 id="4-真田山-三光神社">4)真田山 三光神社</h3>
+<p>距离真田丸遗迹非常近</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419184849.png" alt="Pasted image 20260419184849" loading="lazy" style="max-width:min(100%, 249px);"></figure>
+
+<h3 id="5-安居神社">5)安居神社</h3>
+<p>$〒543-0062 大阪府大阪市天王寺区逢阪１丁目３−24$<br>
+在天王寺附近</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419185303.png" alt="Pasted image 20260419185303" loading="lazy" style="max-width:min(100%, 253px);"></figure>
+
+<p>这部分全部游览完大概需要2.5h，这时大概时间是16:00左右</p>
+<h3 id="3-天王寺公园-阿贝野展望台">3、天王寺公园 - 阿贝野展望台</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418230109.png" alt="Pasted image 20260418230109" loading="lazy" style="max-width:min(100%, 260px);"></figure>
+<p>1）  导航jr天王寺站，出站后找<strong>てんしば</strong>，到这里打个卡（天王寺本身没什么意思<br>
+    然后通过<strong>阿贝野步道桥</strong>（设计很有意思</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418230319.png" alt="Pasted image 20260418230319" loading="lazy" style="max-width:min(100%, 248px);"></figure>
+
+<p>2）  到达<strong>ハルカス300（展望台</strong><br>
+<mark>门票2000円</mark>  <a href="https://www.asoview.com/channel/tickets/Dv7JtrMOTG/">ハルカス300(展望台)のチケット購入・予約</a><br>
+**但感觉没必要上去，有懂的吗？</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418230348.png" alt="Pasted image 20260418230348" loading="lazy" style="max-width:min(100%, 234px);"></figure>
+<p>搭乘电梯上去后，16楼：空中庭院**（和东京六本木有点像</p>
+<h3 id="关于58-60楼展望台">关于58 - 60楼展望台</h3>
+<p>设计还是很不错的<br>
+虽然城市建筑群不如东京，但展望台本身设计的比东京六本木city view的好<br>
+不过这种展望台有点审美疲劳，大阪其他类似的地方很多，<strong>没太大必要</strong></p>
+<h3 id="不要忘记去安居神社">不要忘记去安居神社!!</h3>
+<h3 id="不要忘记去安居神社">不要忘记去安居神社!!</h3>
+<h3 id="不要忘记去安居神社">不要忘记去安居神社!!</h3>
+<h3 id="4-通天阁">4、通天阁</h3>
+<p>（顺路打卡即可，不如东京塔一根的家伙</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418225620.png" alt="Pasted image 20260418225620" loading="lazy" style="max-width:min(100%, 256px);"></figure>
+
+<p><em>そろそろ食べに行きましょう</em></p>
+<p><strong>5、大阪烧 甘辛や</strong>（<mark>孤独のグルメ第六季第一集</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419180010.png" alt="Pasted image 20260419180010" loading="lazy" style="max-width:min(100%, 252px);"></figure>
+<p>下午五点到九点open（周末中午十二点到九点</p>
+<h3 id="6-心斋桥-道顿堀">6、心斋桥 - 道顿堀</h3>
+<p>大阪地标，不打卡不是大阪人~</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419190708.png" alt="Pasted image 20260419190708" loading="lazy" style="max-width:min(100%, 331px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260419191008.png" alt="Pasted image 20260419191008" loading="lazy" style="max-width:min(100%, 252px);"></figure>
+<p>晚上在这边随便逛逛酒早点回酒店休息吧~第二天早上要早起</p>
+<details class="callout" open><summary>Day1交通规划与费用（点击展开）</summary>
+### 1、关西机场 ➔ 大阪站
+上午8:40落地关西机场，办好入境和取行李后，乘坐 **JR HARUKA** 前往大阪站；
+或者时间充裕的话，可以JR 关空快速（Kansai Airport Rapid Service），节省600円
+如果酒店不能提前寄存行李，就先在大阪站寄存，之后再开始当天行程。
+
+### 2、建议购买：Osaka Metro一日券（Enjoy Eco Card）
+<mark>8月5日是工作日，成人820円</mark>
+这一天如果按照 **大阪市役所 ➔ 大阪城 ➔ 天王寺 ➔ 通天阁 ➔ 心斋桥 / 道顿堀** 的路线走，基本可以回本；
+如果中间有一两段改成步行，也问题不大，主要还是图省心，不用每段都单独买票。
+
+### 3、这张券的使用范围
+1）可以在**Osaka Metro全线**和**大阪市营巴士大部分线路**上使用；
+2）**不包含 JR HARUKA**，也**不包含JR线路**，所以机场到大阪站这一段还是要单独买票；
+3）同样**不包含南海、近铁、阪急、阪神、京阪**等私铁线路；
+4）如果坐出了适用范围，出站时需要**另外补票**。
+
+### 4、购买和使用时的注意事项
+1）<mark>到地铁站后，直接在**Osaka Metro自动售票机**购买即可；</mark>
+2）这张票**购买时不会印上使用日期**，而是在**当天第一次插进闸机**时才会打印日期；
+3）日期一旦打印出来，就**只限当天无限次使用**；
+4）如果当天有从其他铁路**直通进入大阪Metro**的情况，最好提前买好这张票，避免换乘时麻烦。
+
+## 5、Day1市内移动顺序（按这份行程走最顺）
+### 住处 ➔ 淀屋桥（大阪市役所）
+先坐地铁去市役所，吃午饭；
+
+### 淀屋桥 ➔ 谷町四丁目（大阪城）
+从市役所去大阪城，大约30min；
+
+### 大阪城周边步行
+天守阁 ➔ 玉造稲荷神社 ➔ 真田丸遗迹 ➔ 真田山三光神社 ➔ 安居神社
+这一段以步行为主，其中从真田丸遗迹到三光神社很近，安居神社在天王寺附近；
+
+### 天王寺附近
+安居神社之后，导航到 **JR天王寺站**，出站后找 **てんしば**，再通过 **阿贝野步道桥** 去 **ハルカス300 / 16楼空中庭院**；
+
+### 天王寺 ➔ 通天阁
+这段距离不算太远，看体力决定是步行还是继续坐地铁；
+
+### 通天阁 ➔ 心斋桥 / 道顿堀
+傍晚去吃大阪烧，然后晚上逛心斋桥、道顿堀；
+
+### 心斋桥 / 道顿堀 ➔ 酒店
+最后再坐地铁返回酒店即可。
+
+### 6、额外提醒
+1）这张一日券适合覆盖今天的**市内交通**，但**机场进城的HARUKA不包含在内**；
+2）如果今天走累了，通天阁到心斋桥这段也可以直接坐地铁，不用硬走；
+3）如果临时想加去梅田、难波等别的点，既然已经买了一日券，就可以放心多坐几段。
+
+## Day1交通费用（建议版 / 概算）
+### 1、关西机场 ➔ 大阪站（JR HARUKA）
+1800円
+
+### 2、大阪市内交通（Osaka Metro一日券）
+820円
+
+### 交通合计：2620円
+如果Day1不买一日券、而是每段单独买票，按照这份路线大概会在 **2660 - 3040円** 左右；
+所以Day1买 **Osaka Metro一日券** 依然是更省心、也更划算的安排。
+</details>
+
+<p><strong>一、大阪   Day2</strong>   <mark>（8.6</mark></p>
+<h3 id="1-胜尾寺">1、胜尾寺</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419010102.png" alt="Pasted image 20260419010102" loading="lazy" style="max-width:min(100%, 237px);"></figure>
+<p>远离市区的一个比较不错有小巧思的寺庙<br>
+早上八点到下午五点open<br>
+门票500円</p>
+<p><strong>交通规划</strong>   最早的一班从大阪站发出的电车如下：<br>
+         大概 九点半 到达胜尾寺<br>
+         游玩大概1.5h，比较有趣的是寻找漫山遍野的达摩</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419010035.png" alt="Pasted image 20260419010035" loading="lazy" style="max-width:min(100%, 275px);"></figure>
+<p><strong>需要注意</strong>的是这班公交30min一班，如果人多可能面临需要等下一班的情况<br>
+所以需要预留出充分时间</p>
+<h3 id="小巧思">小巧思：</h3>
+<p>1）漫山遍野的达摩<br>
+2）达摩开眼的仪式<br>
+<mark>3）里面可以打卡集章</mark></p>
+<p><strong>交通规划</strong>   从胜尾寺离开后前往万博纪念公园大概需要1h的车程，考虑到排队等车的因素，建议预<strong>留出2h的通勤时间</strong>；<br>
+午餐 google maps推荐在LaLaport EXPOCITY吃，这里餐厅较多</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419011639.png" alt="Pasted image 20260419011639" loading="lazy" style="max-width:min(100%, 283px);"></figure>
+
+<h3 id="2-万博纪念公园-太陽-塔">2、万博纪念公园 - 太陽の塔</h3>
+<p><a href="https://reserve.taiyounotou-expo70.jp/reservation.php">「太陽の塔」–入館予約</a>  票价1080円 / 枚<br>
+提前4个月预约，名额很有限，建议尽早预约确定！！</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418223930.png" alt="Pasted image 20260418223930" loading="lazy" style="max-width:min(100%, 252px);"></figure>
+
+<p>参观完大概下午3-4点之间；<br>
+从这里出发前往<strong>柳ヶ崎湖畔公园</strong>看花火大会，全程大概需要1h30min左右（考虑到当天交通情况<br>
+过程中换乘三次，<br>
+（来回车费的话2000円</p>
+<p>先导航到Okina, 8-5 Matsubaracho, Otsu, Shiga 520-0831<br>
+吃晚饭先<br>
+作为<mark>日本三大牛肉之一的近江牛</mark>，不得不品尝。</p>
+<h3 id="3-okina">3、Okina</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419182004.png" alt="Pasted image 20260419182004" loading="lazy" style="max-width:min(100%, 253px);"></figure>
+<p>下午五点open；定食在1500-1800円以内（如果要吃很高端的大概是2900円</p>
+<p>之后从大津站出发前往大津京站20min，然后步行15min左右，到达<strong>柳ヶ崎湖畔公园</strong><br>
+如果人很多就慢慢找位置，或者离远一点看，总是有办法的。</p>
+<h3 id="4-琵琶湖-花火大会-8-6晚七点半到八点半">4、琵琶湖 - 花火大会 （8.6晚七点半到八点半</h3>
+<p><a href="https://www.xiaohongshu.com/explore/66c4c2b4000000001d019bc4?app_platform=ios&amp;app_version=9.26.1&amp;share_from_user_hidden=true&amp;xsec_source=app_share&amp;type=normal&amp;xsec_token=CBTyOYDV3Dn0j3BE1v1eOs-KO2DaEm8XefdoN8ggsjhJ0=&amp;author_share=1&amp;xhsshare=WeixinSession&amp;shareRedId=ODxEOTo8ND42NzUyOTgwNjdHOTk0Nz86&amp;apptime=1776494079&amp;share_id=b3f6dc1744f840a09ea5e8adefe92045">琵琶湖花火大会（含无料席分享）</a></p>
+<figure class="media"><img src="Attachment/Pasted image 20260418143638.png" alt="Pasted image 20260418143638" loading="lazy" style="max-width:min(100%, 300px);"></figure>
+<h3 id="观赏地点-柳-崎">观赏地点：柳ヶ崎</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418143722.png" alt="Pasted image 20260418143722" loading="lazy" style="max-width:min(100%, 240px);"></figure>
+<figure class="media"><img src="Attachment/db01fa3230fd22a1d9bafe52ac3a2af7.jpg" alt="db01fa3230fd22a1d9bafe52ac3a2af7" loading="lazy" style="max-width:min(100%, 244px);"></figure>
+<p><strong>返回大阪站</strong>：东海道山阳线  大概1h10min</p>
+<h3 id="8-黑门市场-机动安排">8*、黑门市场（机动安排）</h3>
+<p>（可以逛逛、吃饭 - 但是好像也有一切价格虚高的店，注意甄别吧</p>
+<details class="callout" open><summary>Day2交通券结论与费用（点击展开）</summary>
+## Day2交通券结论（2026年4月核查）
+这一天的路线是 **大阪市区 ➔ 箕面萱野 ➔ 胜尾寺 ➔ 万博纪念公园 ➔ 大津 / 大津京 ➔ 柳ヶ崎 ➔ 大阪**
+麻烦的地方在于，交通工具横跨了 **Osaka Metro / 北大阪急行 / 阪急巴士 / 大阪单轨 / JR**
+所以看了一圈之后，**没有哪一张优惠券能明显比单独买票更划算**。
+
+### 1、Osaka Metro一日券
+工作日820円；
+但这天最花钱的几段：**箕面萱野、胜尾寺巴士、大阪单轨、JR去大津 / 大津京** 都不包含在内，所以不推荐。
+
+### 2、JR西日本 Kansai Area Pass
+1日券2800円；
+虽然包含大阪 - 大津 / 大津京这一段JR，但**不包含胜尾寺巴士、箕面萱野方向、万博纪念公园这一段**，算下来反而比单独买票更贵。
+
+### 3、KANSAI RAILWAY PASS / LITE
+它的思路是包**地铁和私铁**，但是**不包含JR，也不包含巴士**；
+而这一天既要坐JR去滋贺，又要坐巴士去胜尾寺，所以也不合适。
+
+### 4、OSAKA AMAZING PASS
+1日券3500円；
+更适合在大阪市区密集刷景点和市内交通的日子，放在今天这种 **远郊寺庙 + 万博 + 滋贺花火** 的路线里，不划算。
+
+## Day2计划交通安排
+### 1）大阪站 / 梅田 ➔ 箕面萱野
+先从大阪市区坐车到箕面萱野站；
+
+### 2）箕面萱野 ➔ 胜尾寺
+从箕面萱野站乘坐直达巴士上山，平日早上9点之后班次很密；
+
+### 3）胜尾寺 ➔ 箕面萱野 ➔ 万博纪念公园
+从胜尾寺坐巴士回箕面萱野，再换乘前往万博纪念公园；
+
+### 4）万博纪念公园 ➔ 大津
+下午从万博纪念公园出发，前往大津吃饭；
+
+### 5）大津 ➔ 大津京 ➔ 柳ヶ崎湖畔公园
+吃完饭后，再从大津站往大津京方向移动，步行去柳ヶ崎看花火；
+
+### 6）大津京 ➔ 大阪站
+花火大会结束后，乘坐JR返回大阪站。
+
+## Day2交通费用（原计划版本 / 概算）
+### 1、大阪站 / 梅田 ➔ 箕面萱野
+约480円
+
+### 2、箕面萱野 ➔ 胜尾寺
+单程800円
+
+### 3、胜尾寺 ➔ 箕面萱野
+单程800円
+
+### 4、箕面萱野 ➔ 万博纪念公园
+约440円
+
+### 5、万博纪念公园 ➔ 大津
+约910円
+
+### 6、大津 ➔ 大津京
+约200円
+
+### 7、大津京 ➔ 大阪站
+约960円
+
+### 交通合计：约4590円
+如果当天不是从大阪站 / 梅田附近出发，而是从别的地铁站出发，可能会有几十到一两百円的浮动；
+另外，**太陽の塔门票1080円** 和 **胜尾寺门票500円** 这是门票，不算在上面的交通费用里。
+</details>
+
+<p><strong>一、大阪 Day 3</strong>   <mark>(8.7</mark><br>
+<strong>交通规划</strong>   七点半到达大阪站，在大阪站附近打卡梅田区建筑群，<br>
+          然后九点左右乘车前往加太港</p>
+<h3 id="1-梅田">1、梅田</h3>
+<h3 id="1-広場">1）カリヨン広場</h3>
+<p>上楼梯风景不错，可以拍照</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418231405.png" alt="Pasted image 20260418231405" loading="lazy" style="max-width:min(100%, 236px);"></figure>
+
+<h3 id="2-lucua顶层观景台">2）LUCUA顶层观景台</h3>
+<figure class="media"><img src="Attachment/833a5dbd09ea6c98277d777c21be7015.jpg" alt="833a5dbd09ea6c98277d777c21be7015" loading="lazy" style="max-width:min(100%, 261px);"></figure>
+
+<h3 id="3-梅田新歩道橋">3）梅田新歩道橋</h3>
+<figure class="media"><img src="Attachment/887b56c6856f8f0969e6724aea3e5d44.jpg" alt="887b56c6856f8f0969e6724aea3e5d44" loading="lazy" style="max-width:min(100%, 265px);"></figure>
+
+<h3 id="2-友-島-堺">2、友ヶ島 - 堺</h3>
+<p><strong>交通规划</strong>   从大阪到加太港乘坐电车2h<br>
+          从加太港到堺市役所乘坐电车大概2h<br>
+          从堺市役所返回大阪站大概40min<br>
+其中需要注意的是，<mark>南海加太线有可能坐到鲷鱼车厢（看运气</mark></p>
+<h3 id="1-友-島">1）友ヶ島</h3>
+<p><mark>夏日重现圣地巡礼</mark><br>
+一定要提前一天通过官网查询当日的更新記事，是否 荒天<br>
+<a href="https://tomogashimakisen.com/main/">HOME | 友ヶ島汽船 公式サイト</a></p>
+<figure class="media"><img src="Attachment/Pasted image 20260418235127.png" alt="Pasted image 20260418235127" loading="lazy" style="max-width:min(100%, 367px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260418235150.png" alt="Pasted image 20260418235150" loading="lazy" style="max-width:min(100%, 358px);"></figure>
+<p>从加太港乘船上岛，大概20min</p>
+<h3 id="坐13-00的班次上岛-下午15-30返回加太港">坐13:00的班次上岛，下午15:30返回加太港</h3>
+<h3 id="注意">注意！</h3>
+<p>岛上基本没人，唯一的小卖部海の家营业极其不稳定，<strong>所以上岛前请准备好水源！</strong></p>
+<h3 id="昼飯">昼飯</h3>
+<h1>満幸商店</h1>
+<p>当地特色的海鲜店<br>
+人均1500円左右</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419002110.png" alt="Pasted image 20260419002110" loading="lazy" style="max-width:min(100%, 305px);"></figure>
+
+<p>等船过程中可以去餐厅旁边的淡嶋神社逛一逛（这沿着海岸线走一走我看也是极好的</p>
+<h3 id="淡嶋神社">淡嶋神社</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419002233.png" alt="Pasted image 20260419002233" loading="lazy" style="max-width:min(100%, 300px);"></figure>
+
+<p><mark>a、加太港附近巡礼点位</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419001622.png" alt="Pasted image 20260419001622" loading="lazy" style="max-width:min(100%, 460px);"></figure>
+<p>这里<strong>只需要打卡左下角的几个</strong>，右上角的几个没必要</p>
+<h3 id="b-友-島">b、友ヶ島</h3>
+<p><mark>上岛后有小屋子可以拿打卡地图，所以不用担心，到时候跟着地图走就完了</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419003013.png" alt="Pasted image 20260419003013" loading="lazy" style="max-width:min(100%, 484px);"></figure>
+
+<h3 id="2-堺市役所">2）堺市役所</h3>
+<p>21楼展望大厅 - 海 - 巨大古坟<br>
+早上九点到晚上九点开放</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419000713.png" alt="Pasted image 20260419000713" loading="lazy" style="max-width:min(100%, 317px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260418232643.png" alt="Pasted image 20260418232643" loading="lazy" style="max-width:min(100%, 263px);"></figure>
+
+<h3 id="晚上返回大阪市区-时间大概是七点到八点之间-不是很确定">晚上返回大阪市区，时间大概是七点到八点之间？（不是很确定</h3>
+<h3 id="3-kitte-osaka">3、KITTE Osaka</h3>
+<p>就在大阪站附近的商场，有卖很多不错的特产（据说有来自全日本的特产<br>
+另外，可以在这里解决晚饭</p>
+<details class="callout" open><summary>Day3交通券结论与费用（点击展开）</summary>
+## Day3交通券结论（2026年4月核查）
+这一天的核心交通是 **JR + 南海电铁 + 友ヶ島汽船**；
+看了一圈之后，**没有哪一张通票能明显把Day3压到比单独买票更便宜**。
+
+### 1、加太观光きっぷ（纸质）
+纸质版已经在 **2026年3月31日** 结束发售，到了 **2026年8月7日** 这一天已经不能用了。
+
+### 2、加太观光デジタルきっぷ
+数字版目前还在卖，价格 **2120円**；
+但它的内容是 **指定车站 ⇔ 和歌山市 的往返 + 加太线1日自由乘车**，
+而且官方写了：**途中站下车后，该乘车券不能再次使用**。
+Day3要去 **加太 ➔ 堺東 ➔ 大阪**，中间明确要在堺东停一站，所以这张票并不适合今天的路线。
+
+### 3、Osaka Metro一日券 / OSAKA AMAZING PASS
+这两张票更适合大阪市区密集移动；
+Day3最花钱的部分是 **南海电铁和友ヶ島汽船**，所以也帮不上太多。
+
+### 4、JR西日本各种关西通票
+今天不是JR主场，JR只是在 **大阪站 ↔ 新今宫** 这一小段用一下；
+主要还是南海和船，所以没必要。
+
+### 结论：
+## Day3最合适的方式，还是直接刷IC卡 / 单独买票。
+
+## Day3小优化（时间差不大、能省一点点）
+早上从梅田打完卡后，直接回 **JR大阪站 ➔ 新今宫 ➔ 南海电铁 ➔ 加太**；
+晚上从 **堺东 ➔ 新今宫 ➔ JR大阪站** 回来。
+这条线和 **梅田地铁去难波再接南海** 在时间上基本是同一量级，通常不会明显更慢；
+优势主要只是稍微便宜一点，大概能省 **80円左右**，而且换乘也不复杂。
+
+## Day3计划交通安排（推荐版）
+### 1）大阪站 ➔ 新今宫 ➔ 加太
+先从大阪站坐JR到新今宫，再换乘南海电铁前往加太；
+全程大概2小时左右，到了加太之后再步行去港口。
+
+### 2）加太港 ➔ 友ヶ島
+乘坐友ヶ島汽船上岛；
+**13:00上岛、15:30返回** 这个安排是可以的。
+
+### 3）加太 ➔ 堺东
+从加太坐南海电铁返回大阪方向，中途转去堺东；
+到堺市役所看完夜景 / 展望台后，再回大阪。
+
+### 4）堺东 ➔ 新今宫 ➔ 大阪站
+最后从堺东坐南海高野线回新今宫，再换JR返回大阪站；
+之后去 **KITTE Osaka** 解决晚饭，顺路。
+
+## Day3交通费用（推荐版 / 概算）
+### 1、大阪站 ➔ 加太
+约1210円
+
+### 2、友ヶ島汽船往返
+2500円
+
+### 3、加太 ➔ 堺东
+约1010円
+
+### 4、堺东 ➔ 大阪站
+约490円
+
+### 交通合计：约5210円
+如果改走 **梅田地铁 ➔ 难波 ➔ 南海** 的传统路线，整体大概会贵 **80円左右**；
+但两条线时间差不大，所以如果当天更想走“看着更直接”的路线，改回难波方案也完全可以。
+
+## Day3注意事项
+1）友ヶ島汽船需要在出发前一天和当天都查看官网更新，荒天有可能停航或只开部分班次；
+2）官网写了**不接受前一天预约**，而且当天会发**乘船整理券**，所以不要卡点到港口；
+3）岛上补给不稳定，水和简单食物最好在上岛前就准备好；
+4）如果当天风浪较大，返程班次可能会调整，堺市役所这段就要机动一点，不要把时间卡得太死；
+5）友ヶ島汽船通常**周三停航**，但暑期会有例外，还是以当天官网公告为准。
+</details>
+
+<h3 id="大阪住处">大阪住处</h3>
+<p>房间挺好的，该有的都有，唯一的问题就是不可提前取消。<br>
+从地铁站到市中心大阪站20min，大概每晚<strong>人均120元</strong>。</p>
+<h3 id="适配这次行程的原因">适配这次行程的原因</h3>
+<p>1）连住 <strong>8.5 - 8.7 共3晚</strong>，不用天天搬行李；<br>
+2）去大阪站 / 梅田不算远，适合你这三天都以大阪市区为交通起点；<br>
+3）Day1 晚上回道顿堀后、Day2 花火结束回大阪、Day3 从堺东回大阪，收尾都还算顺。</p>
+<h3 id="需要确认">需要确认</h3>
+<p>1）因为<strong>不可提前取消</strong>，最好等机票和前几天主线路线彻底定死后再锁；<br>
+2）确认是否支持 <strong>提前寄存 / 退房后寄存</strong>，这样 Day1 落地和 Day3 机动会更轻松。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419174234.png" alt="Pasted image 20260419174234" loading="lazy" style="max-width:min(100%, 297px);"></figure>
+
+<details class="callout" open><summary>大阪餐饮整理（点击展开）</summary>
+### 说明
+1）早餐统一按 **便利店 600円** 计算；
+2）没写死具体餐厅的正餐，按当地便宜餐馆均价估；
+3）以下只算三餐，零食和酒水不另外展开。
+
+## 8.5 大阪 Day1
+早餐：便利店 **600円**
+午餐：大阪市役所食堂， **1200円左右**
+晚餐：大阪烧 **甘辛や**，按 **人均2000円** 计算
+### 当日餐饮小计：3800円左右
+
+## 8.6 大阪 Day2
+早餐：便利店 **600円**
+午餐：万博 / EXPOCITY 一带，未写死具体店，按商场简餐记 **1000 - 1500円**
+晚餐：**Okina**，文中已写定食 **1500 - 1800円**
+### 当日餐饮小计：3100 - 3900円
+
+## 8.7 大阪 Day3
+早餐：便利店 **600円**
+午餐：加太 **満幸商店**，文中已写 **人均1500円左右**
+晚餐：大阪市区 / KITTE Osaka 一带，未写死具体店，按便宜餐馆记 **1000 - 1500円**
+### 当日餐饮小计：3100 - 3600円
+
+### 大阪 3 日餐饮小计
+### 约10000 - 11300円
+</details>
+
+<details class="callout" open><summary>大阪门票整理（点击展开）</summary>
+### 说明
+1）这里只统计景点门票 / 观览费，不含交通、餐饮；
+2）按 2026 年 4 月已核到的价格整理；
+3）像 **ハルカス300** 这种已经写明“没太大必要”的项目，会单独标成可选。
+
+## 8.5 大阪 Day1
+固定门票：
+1）**大阪城天守阁**：**1200円**  
+[大阪城天守阁官方](https://www.osakacastle.net/guide/?lang=en)
+可选门票：
+2）**ハルカス300（展望台）**：**2000円**  
+[Harukas 300 官方](https://www.abenoharukas-300.jp/en/observatory/ticket.html)
+### 当日门票小计：1200円（不登 Harukas） / 3200円（登 Harukas）
+
+## 8.6 大阪 Day2
+1）**胜尾寺**：**500円**（文中已写）
+2）**太陽の塔**：**1080円**  
+[太陽の塔官方](https://taiyounotou-expo70.jp/guide/fee/)
+### 当日门票小计：1580円
+
+## 8.7 大阪 Day3
+当前主线里的 **友ヶ島、堺市役所展望、梅田打卡点** 都不额外收固定门票。
+### 当日门票小计：0円
+
+### 大阪 3 日门票小计
+### 2780円（不登 Harukas） / 4780円（登 Harukas）
+</details>
+
+<p><strong>二、京都 Day1</strong>  <mark>（8.8</mark></p>
+<details class="callout" open><summary>京都 Day1 交通情况整理（点击展开）</summary>
+### 以下为这一天的优化后执行顺序；如果和下方旧内容有冲突，以这块为准。
+
+## Day1主线（优化后）
+### 大阪 ➔ 京都站附近酒店 / 京都站寄存 ➔ 岚山 / 嵯峨鸟居本 ➔ 京都站附近酒店入住放行李 ➔ 丰乡小学 ➔ 伏见稻荷夜爬 ➔ 回酒店
+
+### 1、上午去岚山前，行李怎么处理
+### 可选项A：直接寄存在京都站附近酒店前台
+这是第一选择，也是最顺手的方案；
+早上先到酒店放箱子，再去岚山，等中午回来时正好办理入住。
+
+### 可选项B：寄存在京都站的寄存柜 / 官方寄存点
+如果酒店不能提前寄存，就直接用京都站寄存；
+中午回京都站附近时再取走，或者顺路去酒店办理入住。
+
+### 不推荐：带着大件行李去岚山
+上午还要接巴士上爱宕念佛寺方向，带箱子会很拖节奏。
+
+### 2、上午建议保留的岚山主线
+愛宕念仏寺 ➔ 嵯峨鸟居本 ➔ 祇王寺 ➔ 二尊院 / 常寂光院二选一 ➔ 岚山竹林 ➔ 野宫神社 ➔ 渡月桥
+
+## 3、Day1交通券结论
+这一天跨了 **JR / 阪急 / 巴士 / 近江铁道**，没有特别合适的一日券能完整覆盖；
+**最自然的方式还是直接刷IC卡 / 单独买票**。
+
+## 4、Day1推荐交通顺序
+### 1）大阪 ➔ 京都站附近酒店 / 京都站
+先处理行李，再开始当天行程。
+
+### 2）京都站 ➔ 嵯峨嵐山 / Otagidera-mae
+从京都站去岚山，之后搭巴士上到爱宕念仏寺附近，开始一路往下逛。
+
+### 3）岚山 ➔ 京都站附近酒店
+中午回酒店附近，办理入住、放好行李，顺便把午饭简化解决；
+这一天不建议再专门绕去远处吃正餐。
+
+### 4）京都站 ➔ 丰乡小学
+从京都站出发，坐JR到米原 / 彦根方向，再换近江铁道去豊郷駅。
+
+### 5）丰乡小学 ➔ 京都 / 稻荷
+下午结束后返回京都，再去伏见稻荷夜爬；
+夜爬结束后从JR奈良线回住处最顺。
+
+## 5、Day1交通费用（优化后 / 概算）
+单独买票大约 **4200 - 4700円**
+
+## 6、Day1注意事项
+1）上午岚山不要贪太满，不建议把二尊院和常寂光院都塞满；
+2）午饭建议简单解决，把时间留给丰乡和夜爬稻荷；
+3）如果丰乡那边比预想晚结束，伏见稻荷基本可以，因为夜爬弹性很大。
+</details>
+
+<h3 id="上午出发前">上午出发前</h3>
+<p>先从大阪到<strong>京都站附近</strong>；<br>
+如果酒店可以提前寄存行李，就先去酒店前台放箱子；<br>
+如果酒店不能提前寄存，就把行李寄存在<strong>京都站寄存柜 / 官方寄存点</strong>，中午回京都站附近时再取。</p>
+<h3 id="1-岚山-嵯峨鸟居本-渡月桥">1、岚山 - 嵯峨鸟居本 - 渡月桥</h3>
+<p>特色：京都古老的小路，相对岚山游客比较少，适合作为京都第一天的上午主线。</p>
+<h3 id="交通路线规划">交通路线规划</h3>
+<p><strong>路线A</strong>      从京都站乘坐JR到<strong>嵯峨嵐山駅</strong>，18min；<br>
+        再从<strong>嵯峨嵐山駅</strong>搭乘巴士到<strong>Otagidera-mae</strong>，20min</p>
+<p><strong>路线B</strong>      从大阪先到梅田站，然后乘坐阪急京都线到达桂站；<br>
+        换乘岚山线，到达阪急岚山站；从梅田算起时间大概1h10min，全程大概1h30min<br>
+        然后从阪急岚山站步行通过望月桥，到达<strong>嵯峨嵐山駅</strong></p>
+<h3 id="经过比较-还是路线b更好">经过比较，还是路线B更好</h3>
+<p><mark>这班巴士的时刻表要注意，出发的前一天查询好，再决定好出发时间</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260420203119.png" alt="Pasted image 20260420203119" loading="lazy" style="max-width:min(100%, 286px);"></figure>
+
+<p>从<strong>爱宕念佛寺</strong>一路下山游玩</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418154809.png" alt="Pasted image 20260418154809" loading="lazy" style="max-width:min(100%, 240px);"></figure>
+<h3 id="1-愛宕念仏寺">1）愛宕念仏寺</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418160241.png" alt="Pasted image 20260418160241" loading="lazy" style="max-width:min(100%, 222px);"></figure>
+<p><em>门票300円左右</em></p>
+<h3 id="2-嵯峨鸟居本">2）嵯峨鸟居本</h3>
+<h3 id="3-祇王寺-青苔庭院">3）祇王寺（青苔庭院）</h3>
+<h3 id="4-二尊院-常寂光院-二选一即可">4）二尊院 / 常寂光院（二选一即可）</h3>
+<p>上午不要排得太满，二尊院和常寂光院不建议都塞进去，不然下午会开始赶。</p>
+<h3 id="5-岚山竹林-野宫神社">5）岚山竹林 ➔ 野宫神社</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418155921.png" alt="Pasted image 20260418155921" loading="lazy" style="max-width:min(100%, 261px);"></figure>
+<p><mark>路人女主的竹林道圣地巡礼</mark></p>
+<h3 id="6-渡月橋">6）渡月橋</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418161910.png" alt="Pasted image 20260418161910" loading="lazy" style="max-width:min(100%, 253px);"></figure>
+<p>这里同样是一处 <mark>K-ON的圣地</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419195649.png" alt="Pasted image 20260419195649" loading="lazy" style="max-width:min(100%, 256px);"></figure>
+
+<h3 id="2-中午回京都站附近酒店">2、中午回京都站附近酒店</h3>
+<p>从岚山返回京都站附近，先办理入住、把行李正式放进房间；<br>
+如果早上是寄存在京都站，这时候顺路取走再去酒店。</p>
+<h3 id="午饭">午饭</h3>
+<p>这一天中午建议<strong>简单解决</strong>即可，便利店、站内快餐或者酒店附近都可以；<br>
+不要再专门绕去远处吃正餐，把时间留给下午的丰乡和晚上的伏见稻荷。</p>
+<h3 id="3-轻音少女-丰乡小学校">3、轻音少女 - 丰乡小学校</h3>
+<p>中午休整之后，从京都站出发前往<strong>丰乡小学</strong>。</p>
+<h3 id="交通">交通</h3>
+<p>从京都站乘坐<strong>东海道山阳线</strong>到达<strong>米原 / 彦根方向</strong>，<br>
+然后换乘omi Tetsudo（<strong>近江铁道</strong>）前往<strong>豊郷駅</strong>，全程大概1h45min；<br>
+<em>近江铁道这部分不包含在JR通票里</em></p>
+<h3 id="食事">食事</h3>
+<p><mark>由于丰乡小学校附近没什么吃的，<strong>所以建议在彦根站附近吃，可以给这里留一点点时间。</mark></strong></p>
+<figure class="media"><img src="Attachment/Pasted image 20260418202416.png" alt="Pasted image 20260418202416" loading="lazy" style="max-width:min(100%, 329px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260418202557.png" alt="Pasted image 20260418202557" loading="lazy" style="max-width:min(100%, 278px);"></figure>
+
+<p>巡礼游玩结束后，下午 / 傍晚返回京都，准备去伏见稻荷夜爬。</p>
+<h3 id="4-伏见稻荷神社">4、伏见稻荷神社</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418191648.png" alt="Pasted image 20260418191648" loading="lazy" style="max-width:min(100%, 192px);"></figure>
+<p>晚上夜爬，很有感觉，白天完全比不上晚上。</p>
+<h3 id="交通">交通</h3>
+<p>从京都站方向去<strong>稻荷 / 伏见稻荷</strong>很顺；<br>
+夜爬结束后，从<strong>Inari稻荷站</strong>坐JR奈良线回住所即可，<br>
+末班车大概在晚上23:30左右，回得去。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260420203606.png" alt="Pasted image 20260420203606" loading="lazy" style="max-width:min(100%, 274px);"></figure>
+
+<p><mark>回去之后早点洗洗睡吧，第二天还要早起</mark></p>
+<p><strong>二、京都 Day2</strong>   <mark>（8.9</mark></p>
+<details class="callout" open><summary>京都 Day2 交通情况整理（点击展开）</summary>
+### 以下为这一天的优化后执行顺序；如果和下方旧内容有冲突，以这块为准。
+
+## Day2主线
+### 贵船神社 ➔ 天ぷら鈴 ➔ 下鸭神社 / 鸭川 / 出町桝形商店街 ➔ 京都大学 / 吉田寮 ➔ 宇治 ➔ 四条河原町
+
+### 1、西本愿寺的定位
+这一天里，**西本愿寺降为纯机动点**；
+只有在上午回到市区特别早、而且体力还很充足的时候，再考虑临时插入。
+
+## 2、Day2交通券结论
+这一天主要会用到 **叡山电车 / 巴士或京都市内接驳 / 京阪或JR / 步行**
+整体上仍然是**IC卡最自然**；
+没有哪张通票能像大阪那样明显更划算。
+
+### 3、可选票券
+### 可选项A：直接刷IC卡
+最灵活，适合你当天根据体力决定宇治和四条河原町停留多久。
+
+### 可选项B：叡山电车・京阪电车1日乘车券
+如果这一天明确走 **贵船 ➔ 出町柳 / 下鸭 ➔ 宇治** 这条线，而且宇治也打算改走京阪系统，可以考虑；
+但它不是绝对省钱，更大的优点是省脑子。
+
+## 4、Day2推荐交通顺序
+### 1）京都站附近 ➔ 出町柳 / 贵船方向
+早起去贵船，建议还是把贵船放在今天最前面。
+
+### 2）贵船 ➔ 出町柳
+回到洛北之后，再接天ぷら鈴和下鸭神社这一带，动线最顺。
+
+### 3）下鸭神社 ➔ 鸭川三角洲 ➔ 出町桝形商店街 ➔ 京都大学 / 吉田寮
+这一段基本都可以靠步行串起来，节奏会很舒服。
+
+### 4）出町柳 / 京大一带 ➔ 宇治
+傍晚再南下去宇治。
+
+### 5）宇治 ➔ 四条河原町 / 回酒店
+如果下山后体力还可以，再去四条河原町；
+如果已经累了，就直接回住处，这一天也已经很完整了。
+
+## 5、Day2交通费用（优化后 / 概算）
+### A：直接刷IC卡
+大约 **1800 - 2400円**
+
+### B：如果使用叡山电车・京阪电车1日乘车券
+大约 **2100円 + 少量接驳费用**
+
+## 6、Day2注意事项
+1）贵船回来后，洛北这段适合慢慢走，不要再给自己塞太多硬景点；
+2）宇治最好放在傍晚到傍晚后，氛围会更好；
+3）四条河原町是纯加分项，不是必须完成任务。
+</details>
+
+<h3 id="1-贵船神社">1、贵船神社</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260420190228.png" alt="Pasted image 20260420190228" loading="lazy" style="max-width:min(100%, 198px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260420201415.png" alt="Pasted image 20260420201415" loading="lazy" style="max-width:min(100%, 239px);"></figure>
+<p><a href="https://www.bilibili.com/video/BV1wod5Y4EDF/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6872280dc2ef82830aeb916ca7288a22">京都 · 贵船_哔哩哔哩_bilibili</a></p>
+<p>早上六点半起，去京都站坐巴士到 Mototanaka駅换乘<strong>叡山电车</strong>（鞍马线）<br>
+如果能搭乘到 <strong>“Kirara（きらら）”</strong> 号展望列车，那运气就太好了~</p>
+<p><mark>在“市原站”到“二之濑站”之间，列车会经过著名的隧道，这时开始录制~</mark></p>
+<p>八点到站，步行约半个小时从贵船口➔ 贵船神社</p>
+<h3 id="特色-1-水占卜-2-朱红色灯笼石阶">特色：1、水占卜；2、朱红色灯笼石阶（いしだたみ</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260420202207.png" alt="Pasted image 20260420202207" loading="lazy" style="max-width:min(100%, 155px);"></figure>
+<p>游玩后，乘车返回洛北 / 出町柳方向。</p>
+<h3 id="2-昼飯-天-鈴">2、昼飯：天ぷら鈴</h3>
+<p>贵船回来之后，接这家店最顺。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418145323.png" alt="Pasted image 20260418145323" loading="lazy" style="max-width:min(100%, 254px);"></figure>
+<p><strong>中午十一点半到两点</strong>（午市性价比较高）；下午五点半开始营业；<mark>星期二定休，不影响</mark><br>
+京都本地人极力推荐的老店，人均1800円左右<br>
+<mark><strong>ビール</strong>很棒，记得点！</mark></p>
+<h3 id="3-下鸭神社-出町桝形商店街-鸭川">3、下鸭神社 - 出町桝形商店街 - 鸭川</h3>
+<p>午饭后，步行15min左右，即可到达<strong>下鸭神社</strong>。</p>
+<p><mark>鸭川，无需多言</mark></p>
+<h3 id="1-賀茂御祖神社-下鴨神社">1）賀茂御祖神社（下鴨神社）</h3>
+<p>相对比较小众，而且<strong>糺之森</strong>的风景很棒，很适合下午漫步</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418162149.png" alt="Pasted image 20260418162149" loading="lazy" style="max-width:min(100%, 240px);"></figure>
+<p><mark>注意：这里的蚊子据说是全京都最毒的~</mark></p>
+<p>路线：自北向南，一路下去，直到河合神社</p>
+<h3 id="2-河合神社">2）河合神社</h3>
+<p>主观美貌，可以稍微看看</p>
+<p>走出神社后，就到了<strong>鸭川三角洲</strong></p>
+<h3 id="3-出町桝形商店街">3）出町桝形商店街</h3>
+<p><mark>玉子市场圣地巡礼</mark>  以及本地人游客都有，生活合文艺都有，值得逛</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418164616.png" alt="Pasted image 20260418164616" loading="lazy" style="max-width:min(100%, 364px);"></figure>
+
+<h3 id="4-鸭川三角洲-下午-傍晚">4）鸭川三角洲（下午 / 傍晚）</h3>
+<p>可以在这多坐会，享受，休息好了再走<br>
+另外，这里还是<mark>K-ON的圣地</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419195529.png" alt="Pasted image 20260419195529" loading="lazy" style="max-width:min(100%, 236px);"></figure>
+
+<h3 id="4-京都大学-吉田寮">4、京都大学 - 吉田寮</h3>
+<p><a href="https://www.bilibili.com/video/BV1oZvdePEYA/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6872280dc2ef82830aeb916ca7288a22">让那美丽的爱再一次降临吧|70年代京都_哔哩哔哩_bilibili</a></p>
+<figure class="media"><img src="Attachment/Pasted image 20260418154308.png" alt="Pasted image 20260418154308" loading="lazy" style="max-width:min(100%, 274px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260418154223.png" alt="Pasted image 20260418154223" loading="lazy" style="max-width:min(100%, 275px);"></figure>
+<h3 id="注意">注意：</h3>
+<p>吉田寮目前依然有学生居住，它并不是作为一个对外开放的“旅游景点”存在的，而是属于京都大学学生的私人生活空间。根据吉田寮学生自治会的官方最新规定，目前的参观要求如下：<br>
+1. <strong>必须获得许可：</strong> 参观者绝对不能擅自进入建筑内部或随意到处走动。必须首先前往<strong>现栋（老楼）的接待处（受付）</strong>。<br>
+2. <strong>主动沟通：</strong> 在接待处向在场的寮生（住宿学生）打招呼说明来意，并明确提出参观请求。<br>
+3. <strong>遵守安排：</strong> 只有在获得现场寮生的明确许可后，才能进入内部。通常情况下，如果当时条件允许，会有寮生专门负责引导外部人员参观。<br>
+<strong>背景与注意事项：</strong> 吉田寮的木造老楼建于 1913 年，是日本现存最古老的学生宿舍。近年来，它一直处于京都大学校方要求“强制清退”与学生“拒绝搬出”的争议和法律诉讼之中。建筑内部非常原生态且杂乱，承载了极强的自治文化与历史痕迹。<br>
+==京大爷表示：<br>
+一般在门口登记一下就可以进去参观。可以跟当时出现在门口附近的寮生说一下，问问能否参观。==</p>
+<h3 id="机动项-西本愿寺">机动项：西本愿寺</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418163036.png" alt="Pasted image 20260418163036" loading="lazy" style="max-width:min(100%, 202px);"></figure>
+<p>如果这一天上午回到市区特别早，而且体力还很充足，可以临时插入；<br>
+否则就直接跳过，不影响主线质量。</p>
+<p>尽量赶在晚上六点之前到达宇治，因为抹茶点六点しめる。</p>
+<h3 id="5-宇治">5、宇治</h3>
+<p>傍晚南下去宇治。<br>
+<mark>预估到达时间：17:30 - 18:00</mark><br>
+离京都并不远，乘坐JR奈良线大概就30min的时间，单程240円</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419201444.png" alt="Pasted image 20260419201444" loading="lazy" style="max-width:min(100%, 269px);"></figure>
+<h3 id="1-伊藤久右衛門-宇治本店">1)伊藤久右衛門 宇治本店</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419201729.png" alt="Pasted image 20260419201729" loading="lazy" style="max-width:min(100%, 257px);"></figure>
+<p>就在宇治站出去后不远，宇治有名的抹茶老店，可以买一根雪糕尝尝(600円左右)<br>
+<em>但需要注意这家店晚上六点关门。</em></p>
+<h3 id="2-宇治川-宇治橋">2)宇治川 - 宇治橋</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419201618.png" alt="Pasted image 20260419201618" loading="lazy" style="max-width:min(100%, 250px);"></figure>
+<p>不来会遗憾的一条河川，沿河有源氏物语的作者的雕像</p>
+<h3 id="3-大吉山展望台">3)大吉山展望台</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419201645.png" alt="Pasted image 20260419201645" loading="lazy" style="max-width:min(100%, 257px);"></figure>
+<p><mark>京吹圣地</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419202015.png" alt="Pasted image 20260419202015" loading="lazy" style="max-width:min(100%, 223px);"></figure>
+<p>山上风景也很好，可以眺望宇治川、周围的古寺院以及宇治城市建筑群</p>
+<p><strong>时间规划</strong>   大概六点左右开始准备返回京都；<br>
+          如果体力还可以，晚上再去四条河原町 / 祇園那一块；<br>
+          如果已经累了，就直接回住处，这一天也已经很完整了。</p>
+<h3 id="6-四条河原町-加分项">6、四条河原町（加分项）</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260420181921.png" alt="Pasted image 20260420181921" loading="lazy" style="max-width:min(100%, 218px);"></figure>
+<p>很漂亮的一条街</p>
+<h3 id="备选食事-処-高辻-亮昌-不知道吃什么的时候可以去">备选食事、ぎょうざ処  高辻 亮昌（不知道吃什么的时候可以去</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418150023.png" alt="Pasted image 20260418150023" loading="lazy" style="max-width:min(100%, 234px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260418150043.png" alt="Pasted image 20260418150043" loading="lazy" style="max-width:min(100%, 228px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260418150101.png" alt="Pasted image 20260418150101" loading="lazy" style="max-width:min(100%, 182px);"></figure>
+<p>饺子店，人均1500円以内</p>
+<h3 id="京都住处-旅館">京都住处：旅館 あづまや</h3>
+<p>一晚<strong>人均267元</strong>，有公共泡澡的地方。</p>
+<h3 id="适配这次行程的原因">适配这次行程的原因</h3>
+<p>1）连住 <strong>8.8 - 8.9 共2晚</strong>，适合把京都站当作这两天的放射型中枢；<br>
+2）Day1 早上先寄存、岚山回来再入住、晚上稻荷结束回住处，这种节奏很顺；<br>
+3）Day2 无论最后从宇治还是四条河原町回去，都比天天换酒店省心很多。</p>
+<h3 id="需要确认">需要确认</h3>
+<p>1）是否支持 <strong>早到寄存行李</strong>，这对 8.8 上午先跑岚山非常关键；<br>
+2）公共浴场的开放时间要提前看一眼，避免夜爬稻荷回来太晚错过。</p>
+<figure class="media"><img src="Attachment/433ed3cf8eca942e83871d0db8001ccd.png" alt="433ed3cf8eca942e83871d0db8001ccd" loading="lazy" style="max-width:min(100%, 426px);"></figure>
+
+<details class="callout" open><summary>京都餐饮整理（点击展开）</summary>
+### 说明
+1）早餐统一按 **便利店 600円** 计算；
+2）Day1 没有写死午晚餐餐厅，按京都站 / 稻荷周边便宜简餐估；
+3）宇治抹茶雪糕、零食和饮料不计入三餐总额。
+
+## 8.8 京都 Day1
+早餐：便利店 **600円**
+午餐：京都站附近简餐，按 **800 - 1200円**
+晚餐：伏见稻荷 / 京都站附近简餐，按 **900 - 1400円**
+### 当日餐饮小计：2300 - 3200円
+
+## 8.9 京都 Day2
+早餐：便利店 **600円**
+午餐：**天ぷら鈴**，文中已写 **人均1800円左右**
+晚餐：四条河原町 / 京都市区晚饭，若走备选 **高辻 亮昌** 可按 **1500円以内** 理解；这里先按 **1500円** 记
+### 当日餐饮小计：3900円左右
+
+### 京都 2 日餐饮小计
+### 约6200 - 7100円
+</details>
+
+<details class="callout" open><summary>京都门票整理（点击展开）</summary>
+### 说明
+1）京都这两天多数神社本身免费，主要是嵯峨野寺院这一串会产生门票；
+2）按 2026 年 4 月核到的信息整理，像 **二尊院 / 常寂光寺二选一** 会写成区间。
+
+## 8.8 京都 Day1
+1）**愛宕念仏寺**：先按 **500円** 预留  
+备注：文中原先写过 300 円，但 2026 年资料已有调整信息，先按 500 円更稳。
+2）**祇王寺**：**300円**  
+[祇王寺官方](https://www.giouji.or.jp/en/)
+3）**二尊院 / 常寂光寺 二选一**：约 **500 - 600円**  
+[二尊院官方](https://nisonin.jp/info/?lang=en)
+### 当日门票小计：1300 - 1400円
+
+## 8.9 京都 Day2
+当前主线里的 **贵船神社、下鸭神社、鸭川、京都大学、宇治、大吉山展望台、四条河原町** 都不需要固定门票。
+### 当日门票小计：0円
+
+### 京都 2 日门票小计
+### 约1300 - 1400円
+</details>
+
+<p><strong>四、神户</strong>   <mark>（ 8.10</mark><br>
+<strong>时间安排</strong>  上午早起，7:30前从京都站出发，上午经过明石大桥，参观姬路城；<br>
+        <mark>下午神户港口和市区闲逛</mark>，傍晚去维纳斯桥</p>
+<h3 id="1-明石大桥">1、明石大桥</h3>
+<p><mark>铃芽户缔和fate zero取景地</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260418150433.png" alt="Pasted image 20260418150433" loading="lazy" style="max-width:min(100%, 230px);"></figure>
+<p><strong>交通</strong>   从京都站，经过大阪站，乘坐<strong>东海道-山阳线</strong>，到达舞子站下车，全程1h20min<br>
+       在舞子公园，即可看到明石大桥</p>
+<figure class="media"><img src="Attachment/Pasted image 20260418152444.png" alt="Pasted image 20260418152444" loading="lazy" style="max-width:min(100%, 395px);"></figure>
+<p><mark>建议九点半前从这里再次出发，前往姬路城</mark></p>
+<h3 id="2-姬路城">2、姬路城</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418152047.png" alt="Pasted image 20260418152047" loading="lazy" style="max-width:min(100%, 289px);"></figure>
+<p>从舞子出发，继续乘坐<strong>东海道-山阳线</strong>，大概车程1h即可到达<br>
+(上午九点到下午四点开放)</p>
+<figure class="media"><img src="Attachment/Pasted image 20260415204148.png" alt="Pasted image 20260415204148" loading="lazy" style="max-width:min(100%, 313px);"></figure>
+<p><strong>特殊</strong>   <em>姬路城布丁有名なんです</em></p>
+<p><strong>时间规划</strong>   下午返回神户三宫站<br>
+          返回的途中在新长田駅下车，打卡著名的雕塑</p>
+<h3 id="记得坐车坐jr的">记得坐车坐JR的</h3>
+<pre><code>      从新长田駅到神户三宫只需要15min
+</code></pre>
+<figure class="media"><img src="Attachment/Pasted image 20260419205536.png" alt="Pasted image 20260419205536" loading="lazy" style="max-width:min(100%, 266px);"></figure>
+<h3 id="3-新長田駅">3、新長田駅</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419205644.png" alt="Pasted image 20260419205644" loading="lazy" style="max-width:min(100%, 238px);"></figure>
+
+<h3 id="4-神户三宫駅">4、神户三宫駅</h3>
+<h3 id="昼飯">昼飯</h3>
+<h1>レッドロック  Red Rock</h1>
+<figure class="media"><img src="Attachment/Pasted image 20260419203913.png" alt="Pasted image 20260419203913" loading="lazy" style="max-width:min(100%, 199px);"></figure>
+<h3 id="别说黑毛和牛不是神户牛这种话">别说黑毛和牛不是神户牛这种话！</h3>
+<p>价格比较亲民，2500円左右就可以打卡</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419204302.png" alt="Pasted image 20260419204302" loading="lazy" style="max-width:min(100%, 256px);"></figure>
+<p><mark>感觉可以一人点一份黑毛和牛盖饭，然后<strong>合资</strong>点一份神户牛里脊</mark><br>
+<em>要我说，就得中午和牛晚上コンビニ啊</em></p>
+<p>另外，饭后可以在三宫站商店街逛一逛，<strong>留心足元的惊喜~</strong></p>
+<p><strong>时间规划</strong>   <em>15:00：生田神社</em><br>
+<em>15:30：神户北野异人馆街（向北步行约 15 分钟</em><br>
+<em>16:30：维纳斯桥（沿着山间步道 步行20min左右即可到达</em><br>
+<em>18:00（左右）：下山，坐车前往神户港（具体坐什么到时候再看</em></p>
+<h3 id="5-生田神社">5、生田神社</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419205243.png" alt="Pasted image 20260419205243" loading="lazy" style="max-width:min(100%, 251px);"></figure>
+
+<h3 id="6-神戸北野異人館街">6、神戸北野異人館街</h3>
+<p>依山而建的欧式建筑群，同时也是<mark>fate zero的圣地</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419203208.png" alt="Pasted image 20260419203208" loading="lazy" style="max-width:min(100%, 255px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260419203240.png" alt="Pasted image 20260419203240" loading="lazy" style="max-width:min(100%, 259px);"></figure>
+
+<h3 id="7-维纳斯桥">7、维纳斯桥</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260418150300.png" alt="Pasted image 20260418150300" loading="lazy" style="max-width:min(100%, 220px);"></figure>
+
+<h3 id="从三宫站坐电车前往神户港">从三宫站坐电车前往神户港</h3>
+<h3 id="8-神户港">8、神户港</h3>
+<h3 id="1-神户大桥">1)神户大桥</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419200759.png" alt="Pasted image 20260419200759" loading="lazy" style="max-width:min(100%, 285px);"></figure>
+<p>同时，这里也是<mark>fate zero中的圣地</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419200822.png" alt="Pasted image 20260419200822" loading="lazy" style="max-width:min(100%, 288px);"></figure>
+
+<h3 id="2-be-kobe">2)Be Kobe~</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419202808.png" alt="Pasted image 20260419202808" loading="lazy" style="max-width:min(100%, 276px);"></figure>
+<p>这一次，为了我战胜直升机吧~</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419202855.png" alt="Pasted image 20260419202855" loading="lazy" style="max-width:min(100%, 302px);"></figure>
+<p>但其实这个好像是为了纪念阪神大地震重建家园修建的<br>
+哈哈，这下就更地狱了……</p>
+<p><mark>另外，港湾人工岛上还有个镂空的更好看的 Be Kobe，如果能找到就最好了~</mark></p>
+<h3 id="神户住宿">神户住宿：</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419210827.png" alt="Pasted image 20260419210827" loading="lazy" style="max-width:min(100%, 292px);"></figure>
+<p>4星级，日本人开的，可以行李寄存，三张单独的床的3床房<br>
+主要是交通很方便，离神户三宫很近。<br>
+这晚先按<strong>人均220元左右</strong>记。</p>
+<h3 id="适配这次行程的原因">适配这次行程的原因</h3>
+<p>1）只住 <strong>8.10 这1晚</strong>，重点就是图一个<strong>三宫附近好进好出</strong>；<br>
+2）白天从京都一路跑到神户港，晚上不想再拖着行李远转；<br>
+3）第二天一早还要去三宫BT坐高速巴士去高松，住得近会非常省心。</p>
+<h3 id="需要确认">需要确认</h3>
+<p>1）能不能 <strong>提前寄存 / 晚上较晚入住</strong>；<br>
+2）三床房是否已经按实际人数锁定，避免临近变房型。</p>
+<details class="callout" open><summary>神户 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和下方旧的A/B费用思路有冲突，以这块为准。
+
+### 结论
+这一天的主线不用大改，**神户港保留**；
+交通上也没有哪张通票能像大阪 Day1 那样明显省钱，直接用 **JR单买票 / IC卡** 最自然。
+
+### 推荐走法
+### 京都站 ➔ 舞子站 ➔ 姬路站 ➔ 新长田站 ➔ 三宫站 ➔ 北野异人馆街 / 维纳斯桥 ➔ 神户港 ➔ 酒店
+
+### 交通方式
+1）**京都站 ➔ 舞子站**：JR；
+2）**舞子站 ➔ 姬路站**：继续坐JR；
+3）**姬路站 ➔ 新长田站 ➔ 三宫站**：都建议继续坐JR。
+4）**三宫站 ➔ 北野异人馆街 ➔ 维纳斯桥**：这段以步行为主，本来就顺路，不需要额外专门加交通；
+5）**下山后 ➔ 神户港**：看体力直接刷IC坐市内交通即可，港口这段保留没有问题。
+
+### 交通费用（概算）
+按当前这条主线，整天交通大约 **3300円左右**；
+其中大头还是 **京都 ➔ 舞子 ➔ 姬路 ➔ 神户市区** 这几段JR。
+
+### 注意事项
+1）这一天如果中午在三宫吃饭，建议把大件行李先放酒店或寄存，不要背着一路爬北野和维纳斯桥；
+2）**北野主要就是去维纳斯桥途中的城市散步段**，不需要再额外拆出很多停留时间；
+3）晚上去神户港的最后一段不必死卡某一条线，按当时体力和下山位置现场刷IC最省心。
+</details>
+
+<p><strong>五、高松市 たかまつ</strong>  <mark>（8.11</mark></p>
+<h3 id="时间安排-上午从神户出发到达高松-中午前往男木岛看猫猫">时间安排：上午从神户出发到达高松，中午前往男木岛看猫猫</h3>
+<h3 id="推荐交通方案-高速巴士">推荐交通方案：高速巴士</h3>
+<p>优点：<strong>费用更稳、直达高松、最适合当天中午接男木岛轮渡</strong><br>
+缺点：需要早起</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416000514.png" alt="Pasted image 20260416000514" loading="lazy" style="max-width:min(100%, 275px);"></figure>
+<p>乘坐高速巴士经过淡路岛前往高松，全程大约3h，普通票价4300円；<br>
+目前已经确定采用 <strong>7:05 这班早班车</strong>，这样到高松后缓冲最充足。<br>
+过程中：跨越明石海峡大桥、纵贯淡路岛、跨越大鸣门桥，能够沿着濑户内海海岸线前进，<mark>尽量选择右侧靠窗的座位</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260416000649.png" alt="Pasted image 20260416000649" loading="lazy" style="max-width:min(100%, 348px);"></figure>
+
+<p>最终到达的都是高松站，<strong>从这里到高松港步行5-7min即可到达。</strong><br>
+<mark>现在就按七点这班巴士来理解即可，这样十点前后到高松，留给上岛前活动的余量最大</mark></p>
+<h3 id="1-玉藻城">1、玉藻城</h3>
+<p>从高松站出发步行10分钟就能到，很近</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419215336.png" alt="Pasted image 20260419215336" loading="lazy" style="max-width:min(100%, 284px);"></figure>
+<p>门票只要200円，为什么不进去看看呢<br>
+<a href="https://www.bilibili.com/video/BV1qr28BfETp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6872280dc2ef82830aeb916ca7288a22">【中日双语】香川县高松城遗址上发现汉字刻字涂鸦，有写中国，日本，好等汉字_哔哩哔哩_bilibili</a><br>
+哈哈哈，不知道天守台上这个涂鸦还在不在，要是在的话真得去打卡一下了</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419215706.png" alt="Pasted image 20260419215706" loading="lazy" style="max-width:min(100%, 296px);"></figure>
+<p>大概是这一块位置，但估计很难看得清了</p>
+<h3 id="2-男木岛-猫岛">2、男木岛（猫岛）</h3>
+<p>从高松港乘渡轮前往（最好赶上中午12点那班），经过女木岛，全程大概40min，往返票价1020円</p>
+<figure class="media"><img src="Attachment/Pasted image 20260415210312.png" alt="Pasted image 20260415210312" loading="lazy" style="max-width:min(100%, 369px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260415210322.png" alt="Pasted image 20260415210322" loading="lazy" style="max-width:min(100%, 370px);"></figure>
+<h3 id="注意">注意</h3>
+<p>1）上岛之前记得在便利店买一些<strong>猫条（猫のおやつ</strong><br>
+2）浅海处甚至能看到红色的野生水母</p>
+<p>下午<strong>五点前</strong>さえ 返航，回到高松站</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419002614.png" alt="Pasted image 20260419002614" loading="lazy" style="max-width:min(100%, 268px);"></figure>
+<p><mark>没想到吧，夏日重现最有名的场面居然在这里</mark></p>
+<h3 id="食事">食事</h3>
+<p><strong>冷乌冬</strong>是这边的特色，可以找个地吃一下</p>
+<h3 id="高松晚上安排">高松晚上安排</h3>
+<p>可以去酒店旁边的<strong>片原町商业街</strong>逛一下</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419221631.png" alt="Pasted image 20260419221631" loading="lazy" style="max-width:min(100%, 258px);"></figure>
+
+<p><strong><em>然后再到海边走一走</em></strong><br>
+<em>真心觉得能到海边坐着边喝点啤酒边聊聊天，是最惬意不过的事情了（平时都没有这种机会吧</em></p>
+<h3 id="高松住宿">高松住宿</h3>
+<h3 id="hotel-areaone-takamatsucity">Hotel Areaone TakamatsuCity</h3>
+<p>先按<strong>人均240元</strong>记（可以去日文官网上对比下价格）。</p>
+<h3 id="适配这次行程的原因">适配这次行程的原因</h3>
+<p>1）只住 <strong>8.11 这1晚</strong>，主要目标是离高松站 / 港口一带别太远；<br>
+2）白天男木岛回来后还能顺手去片原町商业街和海边走走；<br>
+3）第二天一早去尾道，住在高松市区比住得太偏更稳。</p>
+<h3 id="需要确认">需要确认</h3>
+<p>1）如果最后抢到更好的早卖巴士票，也别忘了顺手对比一下酒店官网价；<br>
+2）确认入住时间，避免男木岛回来太晚影响 check-in。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419221450.png" alt="Pasted image 20260419221450" loading="lazy" style="max-width:min(100%, 273px);"></figure>
+
+<p>~~<strong>2、高屋神社 本宮鳥居</strong> <mark>（大概率舍去</mark>~~<br>
+从高松駅出发到观音寺站 JR 大概1小时15min；</p>
+<figure class="media"><img src="Attachment/Pasted image 20260415212926.png" alt="Pasted image 20260415212926" loading="lazy" style="max-width:min(100%, 302px);"></figure>
+<p>后乘坐巴士从观音寺站前往高屋神社（下宫）— <strong>周日停运</strong>；</p>
+<figure class="media"><img src="Attachment/Pasted image 20260415220553.png" alt="Pasted image 20260415220553" loading="lazy" style="max-width:min(100%, 298px);"></figure>
+
+<details class="callout" open><summary>高松 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和下方旧的A/B费用思路有冲突，以这块为准。
+
+### 结论
+这一天在已经放弃原先的JR通票思路、又想稳稳赶上中午男木岛轮渡的前提下，**最合适的就是已经选定的早班高速巴士**：
+### 三宮BT 7:05 ➔ 高松駅高速BT 9:57
+
+### 为什么这版比JR更适合当前安排
+1）**更便宜**：JR这天如果单买票，城际段明显更贵；高速巴士普通票 **4300円**，早卖还能继续压低；
+2）**对男木岛更稳**：9:57就到高松站，步行去高松港只要 **5-7分钟**，中间还有余量；
+3）**比ferry更贴合当天节奏**：Jumbo Ferry虽然更便宜，但到高松通常已经偏中午甚至更晚，缓冲太小。
+
+### 推荐走法
+### 神户三宫 ➔ 高松站高速BT ➔ 高松港 ➔ 男木岛 ➔ 高松港 ➔ 酒店
+
+### 交通方式与费用
+1）**三宮BT 7:05 ➔ 高松駅高速BT 9:57**
+乘坐 **高松エクスプレス神戸号**；
+普通成人单程 **4300円**；
+如果抢到 **早売21** 是 **3600円**，**早売5** 是 **3800円**。
+
+2）**高松駅高速BT ➔ 高松港**
+步行约 **5-7分钟**，这一段不用再额外坐车。
+
+3）**高松港 ⇔ 男木岛**
+乘坐雌雄岛海运轮渡；
+往返 **1020円**；
+8月1日到8月20日是夏季繁忙期时刻表，**12:00** 这班仍然有高松发男木岛的船。
+
+### 交通费用合计
+1）按普通票算：**4300 + 1020 = 5320円**
+2）如果抢到早売21：**3600 + 1020 = 4620円**
+3）如果抢到早売5：**3800 + 1020 = 4820円**
+
+### 这班巴士的注意事项
+1）**学割不能用中国国内学校的学生证**；学割只适用于**在日本国内有校址的学校**在读学生；
+2）如果符合学割资格，**乘车时必须带实体学生证 / 生徒手帳**，**电子学生证不适用**；
+3）**学割不能和早売21 / 早売5叠加**，所以这次更应该优先看成人早卖价；
+4）这条线的**预约 / 发售从乘车日前“1个月又1天前”开始**；
+5）**早売21 / 早売5** 顾名思义，需要分别在出发前 **21天 / 5天** 完成购买，过期没买会失效；
+6）暑假是旺季，**7:05 这班建议尽早订**，不然就会被挤到 8:45 那班，留给男木岛的缓冲明显变小；
+7）相关页面：
+[JR四国巴士路线页](https://www.jr-shikokubus.co.jp/businfo/takamatsu_ex/kobe.html)
+[JR四国巴士时刻页（2026年4月1日改正）](https://www.jr-shikokubus.co.jp/businfo/takamatsu_ex/kobe0401.html)
+[JR四国巴士学割说明](https://www.jr-shikokubus.co.jp/guide/discount.html)
+[男木岛 / 女木岛轮渡时刻与票价](https://meon.co.jp/access)
+</details>
+
+<p><strong>六、尾道市 おのみち</strong>   <mark>（8.12</mark><br>
+<strong>时间规划</strong>    上午从高松<strong>早点出发</strong><mark>（具体多早再看）</mark>坐电车，早点到达尾道，去港口取车骑行；<br>
+           中饭可以在骑行路途中解决，晚上回到尾道<mark>在小城内乱逛</mark>；</p>
+<figure class="media"><img src="Attachment/Pasted image 20260420005015.png" alt="Pasted image 20260420005015" loading="lazy" style="max-width:min(100%, 255px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260420005216.png" alt="Pasted image 20260420005216" loading="lazy" style="max-width:min(100%, 262px);"></figure>
+<p><mark>Ps：尾道的<strong>桃子もも</strong>好像很有名</mark></p>
+<p>从高松市乘坐电车到冈山（おかやま）换乘，全程<strong>3h不到一些</strong>、3000円<br>
+（电车开始运营的时间很早</p>
+<h3 id="1-千光寺">1、千光寺</h3>
+<p>时间：下午五点之前<br>
+猫の细道<br>
+<mark>缆车500円 片道</mark></p>
+<h3 id="2-岛波海道-骑行">2、岛波海道（骑行</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260415223428.png" alt="Pasted image 20260415223428" loading="lazy" style="max-width:min(100%, 297px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260415223724.png" alt="Pasted image 20260415223724" loading="lazy" style="max-width:min(100%, 302px);"></figure>
+<p>初心者コース：从尾道港口出发，沿着向道环骑一周，全程18km，约2h<br>
+中級コース：从尾道出发，经过向岛、因岛、生口岛，从瀬戸田沢港乘船返回尾道港，全程30km，约3-4h （过程中需乘坐轮渡，具体费用临出发前再查）<br>
+租借费用先按3000円左右记，途中轮渡费用不再按旧资料写死</p>
+<figure class="media"><img src="Attachment/Pasted image 20260415224236.png" alt="Pasted image 20260415224236" loading="lazy" style="max-width:min(100%, 582px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260415224426.png" alt="Pasted image 20260415224426" loading="lazy" style="max-width:min(100%, 473px);"></figure>
+
+<p><strong>尾道住宿方面：</strong> 日式和室　临海  见晴亭  三人人均200多一点<br>
+<strong>优点</strong>  0差评民宿、可以看景、淋浴等设施比较老，也是一种体验了<br>
+     <mark>开业时间tm 1921年，</mark>我嘞个，比辛亥革命小10岁<br>
+这晚先按<strong>人均220元左右</strong>记。</p>
+<h3 id="适配这次行程的原因">适配这次行程的原因</h3>
+<p>1）只住 <strong>8.12 这1晚</strong>，和你当天“骑完岛波海道、晚上在尾道慢慢收尾”的气质很搭；<br>
+2）住临海老旅馆，比住标准商务酒店更有尾道味道；<br>
+3）第二天一早去广岛也不会太折腾。</p>
+<h3 id="需要确认">需要确认</h3>
+<p>1）海景好房通常<strong>不能取消</strong>，订之前要先确定这天一定住尾道；<br>
+2）老房子的淋浴和隔音不要按新酒店预期去想，体验感更多来自氛围。</p>
+<figure class="media"><img src="Attachment/cde81c1b0963e6fa1975d4a2349828c7.jpg" alt="cde81c1b0963e6fa1975d4a2349828c7" loading="lazy" style="max-width:min(100%, 200px);"></figure>
+<p>另外，这家民宿的<strong>咖啡厅</strong>很不错</p>
+<h3 id="注意-尽量早些预定-而且海景的好房间是不能取消退订的">注意：尽量早些预定，而且海景的好房间是不能取消退订的！！</h3>
+<details class="callout" open><summary>尾道 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和下方旧的A/B费用思路有冲突，以这块为准。
+
+### 结论
+这一天没有明显更优的通票方案，还是以 **JR单买票 / IC卡** 最直接；
+既然已经判断体力足够，**岛波海道骑行 + 傍晚千光寺** 可以保留，不需要为了省事删掉千光寺。
+
+### 推荐走法
+### 高松 ➔ 冈山换乘 ➔ 尾道 ➔ 港口取车骑岛波海道 ➔ 傍晚回尾道 ➔ 千光寺 ➔ 住尾道
+
+### 交通方式与费用
+1）**高松 ➔ 冈山 ➔ 尾道**
+以JR换乘为主，按当前这条线，城际交通大约 **3000円左右**；
+
+2）**尾道站 / 尾道港周边移动**
+市内以步行为主，车站到港口、到商店街都不算远；
+
+3）**千光寺**
+如果晚上想省腿，可以把 **缆车片道500円** 当作机动项；体力够的话也可以直接步行上去。
+
+### 关于骑行费用
+这部分更像活动费用，不算在上面的公共交通里：
+1）租车 **3000円左右**；
+2）途中船费 **1300円** 是旧资料，临出发前建议再看租车点和对应航线的实时收费。
+
+### 交通费用（不含租车）
+1）只算城际和市内基本移动：约 **3000円**
+2）如果加千光寺缆车片道：约 **3500円**
+
+### 注意事项
+1）这一天真正吃时间的是骑行，不是城际交通，所以关键还是**上午尽量早点离开高松**；
+2）如果傍晚回到尾道时天色已经晚了，千光寺就优先走“缆车上 / 慢慢走下”的省体力版本；
+3）尾道这天不用额外为了票券折腾，简单刷IC反而更稳。
+</details>
+
+<p><strong>七、広島</strong>  <mark>（8.13</mark><br>
+<mark>Ps：来了广岛，当然要吃广岛烧了！</mark></p>
+<p><strong>时间安排：上午从尾道出发到达广岛，上午广岛和平资料纪念馆、下午去宫岛；<br>
+          晚上回到广岛站附近吃饭，随后乘坐夜间大巴前往博多。</strong></p>
+<p>从尾道出发，乘坐 JR山阳线 到达广岛站（全程1h30min 票价1520円</p>
+<figure class="media"><img src="Attachment/Pasted image 20260415230634.png" alt="Pasted image 20260415230634" loading="lazy" style="max-width:min(100%, 439px);"></figure>
+
+<h3 id="1-广岛和平资料纪念馆-和平纪念公园">1、广岛和平资料纪念馆 - 和平纪念公园</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260420010218.png" alt="Pasted image 20260420010218" loading="lazy" style="max-width:min(100%, 226px);"></figure>
+<p>门票大概200円<br>
+<mark>open time：上午七点半到晚上七点</mark><br>
+（大概需要半天的时间，下午游玩</p>
+<h3 id="2-宫岛-严岛神社-jr轮渡">2、宫岛 - 严岛神社 -JR轮渡</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260415231814.png" alt="Pasted image 20260415231814" loading="lazy" style="max-width:min(100%, 226px);"></figure>
+<p>从广岛站乘坐JR 到<strong>宫岛口</strong>，过程30min<br>
+步行5min到轮渡码头，乘船前往宫岛，<strong>船票往返400円，另加100円宫岛访岛税</strong></p>
+<figure class="media"><img src="Attachment/Pasted image 20260415232248.png" alt="Pasted image 20260415232248" loading="lazy" style="max-width:min(100%, 354px);"></figure>
+<h3 id="宫岛鹿">（宫岛鹿🦌</h3>
+<h3 id="注意-最好是涨潮的时候来看-需要提前查询好涨潮时间">注意：最好是涨潮的时候来看，需要提前查询好涨潮时间</h3>
+<p><a href="https://jr-miyajimaferry.co.jp/">宫岛</a><br>
+岛上自然生态保护得特别好，很多野生动物，可以慢慢逛<br>
+<mark>岛上具体的景点有待进一步了解扩充</mark></p>
+<p>Ps：岛上的<mark>“宫岛咖喱面包研究所”</mark>的咖喱面包极力推荐！</p>
+<h3 id="广岛烧">广岛烧！！~</h3>
+<p><mark>具体吃哪家店有待进一步考虑~</mark></p>
+<p><em>晚上按夜巴方案离开广岛，第二天一早到博多。</em></p>
+<details class="callout" open><summary>广岛 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和下方旧内容有冲突，以这块为准。
+
+### 结论
+既然已经明确决定**晚上不住广岛，改坐夜间巴士去博多省一晚住宿**，那这一天就按：
+### 尾道 ➔ 广岛和平纪念馆 / 和平公园 ➔ 宫岛 ➔ 回广岛站附近吃饭 ➔ 夜巴去博多
+来执行最顺。
+
+### 推荐走法
+### 尾道 ➔ 广岛站 ➔ 和平资料馆 / 和平公园 ➔ 广岛站 ➔ 宫岛口 ➔ 宫岛 ➔ 广岛站 ➔ 夜巴
+
+### 交通方式与费用
+1）**尾道 ➔ 广岛站**
+JR山阳线，按你原文这段大约 **1520円**；
+
+2）**广岛站 ⇔ 宫岛口**
+JR往返大约 **840円**；
+
+3）**宫岛口 ⇔ 宫岛**
+轮渡单程 **200円**，往返 **400円**；
+另外，**进宫岛时要再加100円宫岛访岛税**；
+所以这段实际按成人算应记 **500円**。
+
+4）**广岛 ➔ 博多 夜间巴士**
+这里可以先按 **5000円左右** 做预算；
+但官方目前已经是**动态票价**，真实价格会随余位和日期浮动，范围大约 **4000 - 10000円**。
+
+### 交通费用合计（按夜巴版）
+大约 **1520 + 840 + 500 + 5000 = 7860円左右**
+如果夜巴当天卖得贵，整体会再往上浮动。
+
+### 夜巴注意事项
+1）这个方向更适合看 **广島ドリーム博多号**；
+2）目前官方夜行班次示例是：**广岛站新干线口 23:30 发，博多巴士总站 7:01 到**；
+3）这条线官方写明是**繁忙期限定运行便**，所以到时候一定要先看 **8月13日** 是否在可运日历里；
+4）这条线的**预约 / 发售从始发站发车日前“1个月又1天前”的上午9点开始**；
+5）夜巴车型和设备可能会因当天调度变化，不要默认每一班都有完全相同的座位和设备；
+6）相关页面：
+[JR巴士中国 路线详情](https://chugoku-jrbus.co.jp/highway/detail/0008.html)
+[WILLER 检索页](https://travel.willer.co.jp/bus_search/hiroshima/all/fukuoka/hakata/)
+</details>
+
+<details class="callout" open><summary>神户 - 高松 - 尾道 - 广岛 餐饮整理（点击展开）</summary>
+### 说明
+1）早餐统一按 **便利店 600円** 计算；
+2）没写死具体店的午晚餐，按当地便宜餐馆均价估；
+3）姬路布丁、宫岛咖喱面包等零食不计入三餐总额。
+
+### 8.10 神户
+早餐：便利店 **600円**
+午餐：**Red Rock**，文中已写 **2500円左右**
+晚餐：神户港 / 三宫周边简餐，按 **1000 - 1500円**
+### 当日餐饮小计：4100 - 4600円
+
+### 8.11 高松
+早餐：便利店 **600円**
+午餐：高松冷乌冬，未写死具体店，按当地便宜乌冬店记 **700 - 1000円**
+晚餐：片原町 / 高松站周边简餐，按 **1000 - 1500円**
+### 当日餐饮小计：2300 - 3100円
+
+### 8.12 尾道
+早餐：便利店 **600円**
+午餐：岛波海道骑行路途中简餐，按 **1000 - 1500円**
+晚餐：尾道老城 / 商店街简餐，按 **1200 - 1800円**
+### 当日餐饮小计：2800 - 3900円
+
+### 8.13 广岛
+早餐：便利店 **600円**
+午餐：广岛市区简餐，按 **1000 - 1500円**
+晚餐：广岛烧，未写死具体店，按当地常见一份记 **1200 - 1800円**
+### 当日餐饮小计：2800 - 3900円
+
+### 濑户内海 4 日餐饮小计
+### 约12000 - 15500円
+</details>
+
+<details class="callout" open><summary>神户 - 高松 - 尾道 - 广岛 门票整理（点击展开）</summary>
+### 说明
+1）这一段的收费景点不算特别多，主要集中在 **姬路城、玉藻城、广岛和平资料馆、严岛神社**；
+2）像尾道骑行、神户港、北野异人馆街城市散步本身不一定强制买门票，所以这里只记当前主线里比较明确的票。
+
+### 8.10 神户
+1）**姬路城**：**2500円**（2026年3月起非姬路市居民成人票）  
+[姬路城官方](https://www.himejicastle.jp/en/index.php)
+### 当日门票小计：2500円
+
+### 8.11 高松
+1）**玉藻城**：**200円**（文中已写）
+### 当日门票小计：200円
+
+### 8.12 尾道
+当前主线里 **岛波海道骑行、千光寺夜景动线** 不单独按固定门票计；
+若当天只坐缆车上山，已记入交通机动项，不重复算到门票。
+### 当日门票小计：0円
+
+### 8.13 广岛
+1）**广岛和平资料纪念馆**：**200円**（纯纯的公益
+2）**严岛神社**：**300円**（如果进入神社回廊内部）  
+[严岛神社官方](https://www.itsukushimajinja.jp/en/admission.html)
+### 当日门票小计：200 - 500円
+
+### 濑户内海 4 日门票小计
+### 约2900 - 3200円
+</details>
+
+<p><strong>八、日田 - 進撃の巨人</strong>   <mark>（8.14</mark> <br>
+到达九州后，这一天的重点是把 <strong>日田主线 + 当晚到熊本</strong> 跑顺</p>
+<h3 id="时间规划">时间规划</h3>
+<p>前一晚从广岛乘坐夜间大巴前往博多；<br>
+早上到博多后，前往日田有两个并列选项，<strong>下午</strong>从日田乘坐JR返回并去熊本。<br>
+<a href="https://travel.willer.co.jp/bus_search/hiroshima/hiroshima/fukuoka/hakata/ym_202607/day_17/time-division_night/?stockNumberMale=1&amp;stockNumberFemale=0&amp;rid=3">夜行便 広島市から博多行き 2026年07月17日の高速バス・夜行バス予約/最安値情報-WILLER</a></p>
+<figure class="media"><img src="Attachment/Pasted image 20260418233319.png" alt="Pasted image 20260418233319" loading="lazy" style="max-width:min(100%, 433px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260416111945.png" alt="Pasted image 20260416111945" loading="lazy" style="max-width:min(100%, 256px);"></figure>
+<h3 id="方案a-普通jr">方案A：普通JR</h3>
+<p>从博多到日田大约 <strong>1h56min - 2h</strong>，单程 <strong>1930円</strong>，最稳妥也最省钱。</p>
+<h3 id="方案b-特急-由布院之森">方案B：特急「由布院之森」</h3>
+<p>从博多到日田大约 <strong>1h20min</strong>；<br>
+如果能买到 <strong>九州ネットきっぷ</strong>，单程大约 <strong>3030円</strong>；按普通特急票预算则约 <strong>4160円</strong>。<br>
+和普通JR相比，通常是<strong>多花 1100 - 2230円，省 35 - 40min 左右</strong>。</p>
+<p><mark>注意：</mark>从博多站到日田站的 <strong>“由布院之森”（Yufuin-No-Mori）</strong> 是一列非常著名的<strong>观光特急列车</strong>（属于 JR 九州的 D&amp;S——“设计与故事”系列列车），所以需要提前预订位置；<br>
+由于八月份是日本的旅游旺季（尤其是 8 月中旬的节日期间），“由布院之森”极度抢手，往往提前一个月开始售票（上午10：00）后不久就会售罄，可以通过 <a href="https://train.yoyaku.jrkyushu.co.jp/">JR 九州列车预订官网</a> 提前预约座位。</p>
+<p><mark>尽量九点之前到达博多站，注意关注官网的发车时刻表；</mark><br>
+如果坐 <code>由布院之森</code>，尽量选右边靠窗；如果走普通JR，则以省钱和稳妥为主。</p>
+<h3 id="1-日田駅">1、日田駅</h3>
+<p>1）因为公交很少，班次很不密集，所以建议在日田巴士中心上车时，一定要先向工作人员要一份最新的杖立线往返纸质时刻表，<mark>严格按照发车时间规划在每个景点的停留时间</mark>。<br>
+2）因为水坝部分需要徒步一个小时左右，所以需要准备好水和防晒；</p>
+<h3 id="2-進撃-巨人-in-hita-annex-旧馆">2、進撃の巨人 in HITA ミュージアム ANNEX（旧馆</h3>
+<p>乘坐巴士 サッポロビール九州日田工場 下车 （15min<br>
+<mark>平日：9：40、10：45发车</mark><br>
+<mark>周日和节假日：9：25、11：55发车</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260416105557.png" alt="Pasted image 20260416105557" loading="lazy" style="max-width:min(100%, 246px);"></figure>
+<p><mark>门票大概700円 组合票1000円</mark></p>
+<h3 id="昼飯">昼飯</h3>
+<h3 id="去吃jsc打工过的店-虽然不是同一家-有感觉吗">去吃jsc打工过的店（虽然不是同一家），有感觉吗？</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260420011024.png" alt="Pasted image 20260420011024" loading="lazy" style="max-width:min(100%, 289px);"></figure>
+
+<h3 id="3-大山">3、大山ダム</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260416110023.png" alt="Pasted image 20260416110023" loading="lazy" style="max-width:min(100%, 347px);"></figure>
+<p>乘坐巴士 在<strong>中川原站</strong>下车 <br>
+注意：<br>
+1）バス停「中川原」から銅像まで徒歩約30分程度かかります。徒歩を含めた所要時間：バス約30分 ＋ 徒歩約30分程度（合計約60分程度～）<br>
+2）</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416110240.png" alt="Pasted image 20260416110240" loading="lazy" style="max-width:min(100%, 466px);"></figure>
+
+<p><strong>注意</strong>  因巴士时间间隔较长，难以完全把握，所以建议当天晚上到达熊本后，不要安排太多的计划，时间相对自由安排一些。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416123122.png" alt="Pasted image 20260416123122" loading="lazy" style="max-width:min(100%, 265px);"></figure>
+
+<p><strong>时间规划</strong>   大概率是下午五点左右返回日田站，<br>
+          而后乘坐JR和九州新干线sakura号，大约1h50mim，预计晚上七点到达熊本<br>
+          先去住处办理入住，晚上可以在熊本逛逛商店街，<mark>早点休息，因为第二天要早起。</mark></p>
+<h3 id="熊本住宿-2晚">熊本住宿  （2晚）</h3>
+<p>微笑酒店<strong>人均223元 / 晚</strong>，<em>永远的神，有感觉吗？</em><br>
+地理位置处于水前寺和jr熊本站之间，挺好的。<br>
+<mark>而且有洗衣和干洗服务，可以在这里把衣服都洗了，换一身干净的再出发</mark></p>
+<h3 id="适配这次行程的原因">适配这次行程的原因</h3>
+<p>1）连住 <strong>8.14 - 8.15 共2晚</strong>，不用在“日田高强度日”和“阿苏高风险日”之间折腾换酒店；<br>
+2）位置卡在水前寺和熊本站之间，对 8.15 早起出发、8.16 白天熊本市内最后再去鹿儿岛都算平衡；<br>
+3）有洗衣服务，跑到九州中段时会很实用。</p>
+<h3 id="需要确认">需要确认</h3>
+<p>1）是否支持 <strong>提前寄存 / 退房后寄存</strong>；<br>
+2）如果 8.14 晚上到得比较晚，记得确认前台时间。</p>
+<figure class="media"><img src="Attachment/0fbe893c4d8622a492582b095a5d7f20.jpg" alt="0fbe893c4d8622a492582b095a5d7f20" loading="lazy" style="max-width:min(100%, 192px);"></figure>
+
+<details class="callout" open><summary>8.14 日田 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和上方旧内容有冲突，以这块为准。
+
+### 九州段通票结论（先写在最前）
+既然已经决定 **8.19 从宫崎坐高速巴士回福冈**，那么 **不建议购买全九州JR Pass 7日券**；
+官方当前价格是 **26,000円**，而且官方明确写了：**不能用于 B&S Miyazaki buses**，也不包含地铁、普通巴士和他社线路。
+[JR Kyushu Rail Pass](https://www.jrkyushu.co.jp/english/railpass/railpass.html)
+
+## Day主线
+### 博多到达 ➔ 日田 ➔ 进击的巨人相关景点 ➔ 晚上去熊本
+
+### 结论
+这一天可以跑，但前提是把它当成**夜巴之后的高强度日**；
+不建议再额外加点，重点就是把 **日田主线 + 当晚到熊本** 跑顺。
+
+### 推荐交通思路
+1）到博多后，**博多 ➔ 日田** 可按两种思路选：
+   - **普通JR**：约 **1h56min - 2h**，单程 **1930円**
+   - **由布院之森**：约 **1h20min**，单程约 **3030 - 4160円**
+2）到日田后先拿纸质巴士时刻表，再决定馆和大山ダム各停多久；
+3）傍晚从日田返回，晚上直接去熊本入住。
+
+### 费用补充
+如果把 **日田当地巴士机动 + 日田 ➔ 熊本** 一起算进去：
+1）**普通JR版**：整天交通大约 **7800円左右**
+2）**由布院之森版**：整天交通大约 **8900 - 10000円**
+
+### 注意事项
+1）`由布院之森` 暑假很抢，想坐的话一定要提前订；抢不到就直接改普通JR，不要卡死在观光列车上；
+2）日田当地真正限制行程的不是JR，而是**地方巴士班次**；
+3）晚上到了熊本后尽量不要再安排必须打卡的点，留体力给第二天。
+</details>
+
+<p><strong>九、上色见熊野座神社 - 阿苏火山</strong>   <mark>（8.15</mark></p>
+<h3 id="时间安排">时间安排</h3>
+<pre><code>      第二天早上早起，从熊本站出发
+</code></pre>
+<p>需要提前查阅好火山情况：       <br>
+<a href="https://www.aso-volcano.jp/">阿蘇火山火口規制情報</a></p>
+<p>注意：<br>
+1、需要考虑旅游季景区人数问题，所以时间要充分预留一些（箱根前车之鉴<br>
+<mark>2、建议自备一餐干粮</mark></p>
+<h3 id="1-上色见熊野座神社">1、上色见熊野座神社</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260417201818.png" alt="Pasted image 20260417201818" loading="lazy" style="max-width:min(100%, 257px);"></figure>
+<p><mark>动漫萤火之森的取景地</mark><br>
+早上6:30，从熊本站出发，乘坐JR到达高森，全程约1.5h，8:15到达高森<br>
+（后半段不是普通JR主线区间，需要另外补一部分票，约490円）</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416175339.png" alt="Pasted image 20260416175339" loading="lazy" style="max-width:min(100%, 262px);"></figure>
+<p>从高森站乘坐巴士前往神社入口：<br>
+<a href="https://mycupoftrip.com/wp-content/uploads/2024/04/tt-comm_takamori-shikimi-202307161.pdf">高森-神社</a><br>
+- <strong>去程（右回り）：</strong> 08:36 从高森站前发车 ➔ 09:05 抵达上色见熊野座神社入口。<br>
+- <strong>回程（左回り）：</strong> 10:49 在神社入口上车 ➔ 11:22 抵达高森站前。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260417200118.png" alt="Pasted image 20260417200118" loading="lazy" style="max-width:min(100%, 225px);"></figure>
+<p>此时时间充裕，<mark>可以在车站打卡弗兰奇(Franky)雕像</mark>；<br>
+然后可以步行10分钟前往隧道公园逛逛。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260417200258.png" alt="Pasted image 20260417200258" loading="lazy" style="max-width:min(100%, 254px);"></figure>
+
+<h3 id="2-阿苏火山">2、阿苏火山</h3>
+<p>之后最早的一班前往阿苏的班次是在13:00发出，14:20到达阿苏（南阿苏铁道需另外购票）</p>
+<figure class="media"><img src="Attachment/Pasted image 20260417194307.png" alt="Pasted image 20260417194307" loading="lazy" style="max-width:min(100%, 311px);"></figure>
+<p>此时乘坐最后一便景区巴士(14:35)，巴士会在过程中经过草千里，直接坐到终点站：阿蘇山上ターミナル，此时时间为15:10；<br>
+2000円往返</p>
+<h3 id="如果情况允许的话">如果情况允许的话：</h3>
+<p><mark>最后16:30最后一便车，一定要提前15min左右在站台候车，否则很有可能回不去，那就寄了~</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260416181405.png" alt="Pasted image 20260416181405" loading="lazy" style="max-width:min(100%, 510px);"></figure>
+
+<h3 id="3-草千里">3、草千里</h3>
+<p>从阿苏站搭乘景区公交，前往<strong>草千里观景台</strong>，大概25min</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416180055.png" alt="Pasted image 20260416180055" loading="lazy" style="max-width:min(100%, 265px);"></figure>
+
+<h3 id="4-阿苏火山">4、阿苏火山</h3>
+<p>从草千里站搭乘景区公交（阿苏火口线），前往<strong>阿苏火山 Crater</strong>，大概35min</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416180323.png" alt="Pasted image 20260416180323" loading="lazy" style="max-width:min(100%, 290px);"></figure>
+<h3 id="返程">返程</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260416180514.png" alt="Pasted image 20260416180514" loading="lazy" style="max-width:min(100%, 143px);"></figure>
+<p>顺利的话，会在17:03到达阿苏站，<mark>出站打卡乌索普雕像</mark><br>
+之后乘坐jr返回熊本，车程1h30min；</p>
+<h3 id="大概晚上19-30之前到达熊本">大概晚上19:30之前到达熊本</h3>
+<p>因为<mark>熊本部长办公室在晚上7:00关门</mark>，所以大概率是赶不上的，不过也无所谓，晚上在熊本吃个晚饭，慢慢逛逛。</p>
+<details class="callout" open><summary>8.15 上色见神社 / 阿苏 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和上方旧内容有冲突，以这块为准。
+
+### 结论
+这一天能做，但它是九州段里**最不稳定的一天**；
+风险主要来自 **南阿苏铁道 / 高森地方巴士 / 阿苏火口线巴士 / 火山口开放情况**。
+
+### 推荐走法
+### 熊本 ➔ 高森 ➔ 上色见熊野座神社 ➔ 高森 / 阿苏方向 ➔ 草千里 / 阿苏山上二选一或都去 ➔ 返回熊本
+
+### 执行建议
+1）早上按原计划尽量早出发没有问题；
+2）先保住 **上色见熊野座神社**；
+3）下午阿苏段要按当天实际情况决定强度，不要死卡“全都要”。
+
+### fallback 方案
+如果当天任何一段晚点、或火山口限制升级：
+1）优先保留 **上色见熊野座神社**；
+2）阿苏下午改成 **草千里** 或 **阿苏山上** 二选一；
+3）不要为了赶最后一班火口线把整天节奏弄崩。
+
+### 注意事项
+1）阿苏火口限制当天必须再查：  
+[阿蘇火山火口規制情報](https://www.aso-volcano.jp/)
+2）南阿苏铁道和地方巴士这部分，不在JR Pass的价值逻辑里，所以这一天更不构成“买全九州7日券”的理由；
+3）一定要给返程留缓冲，不要用“最后一班一定赶得上”来做计划。
+</details>
+
+<p><strong>十、熊本市   くまもと</strong> <mark>（8.16</mark><br>
+<strong>时间安排</strong>   早上先退房 把行李寄存到车站 然后开始一个白天的行程<br>
+          下午4点之前回到熊本站，乘坐<strong>九州新干线</strong>到达鹿儿岛中央站，全程大概1h</p>
+<p><strong>注意</strong>   <mark>熊本市内电车一日券：手机版500円 / 纸质700円</mark><br>
+<a href="https://www.kotsu-kumamoto.jp/kihon/pub/detail.aspx?c_id=66&amp;id=1433">熊本乘车券</a></p>
+<figure class="media"><img src="Attachment/Pasted image 20260416183459.png" alt="Pasted image 20260416183459" loading="lazy" style="max-width:min(100%, 248px);"></figure>
+
+<h3 id="1-熊本部长办公室">1、熊本部长办公室</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260416184918.png" alt="Pasted image 20260416184918" loading="lazy" style="max-width:min(100%, 237px);"></figure>
+<p>熊本部长演出时间表：早上十点开始营业<br>
+<a href="https://kumamon-land.jp/squares/">熊本部长办公室</a><br>
+<mark>注意：</mark>如果要买熊本熊周边的话，建议不要在这里买，其他商店街有很多</p>
+<h3 id="2-熊本市役所">2、熊本市役所</h3>
+<p>14F观景台（無料）</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416185044.png" alt="Pasted image 20260416185044" loading="lazy" style="max-width:min(100%, 178px);"></figure>
+<p>开放时间不需要参考google的，实际是：<br>
+- <strong>周末及节假日：</strong> 09:00 ～ 22:00<br>
+- <em>(对比平日为 08:30 ～ 22:00)</em><br>
+由于周末市役所的常规办公区域不开放，<strong>不能从正门进入</strong>，需要绕到大楼一楼<strong>南侧的专用入口（南侧玄关）</strong>，那里有係員值守，可以直接从那里乘坐电梯直达 14 楼。</p>
+<h3 id="3-熊本城">3、熊本城</h3>
+<p>每天九点到五点开放<br>
+门票800円</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416120331.png" alt="Pasted image 20260416120331" loading="lazy" style="max-width:min(100%, 240px);"></figure>
+<p>参观完后，中饭可以在<strong>下通商店街</strong>解决，这里很多拉面店，人均1000円</p>
+<h1>熊本 <strong>ラーメン 桂花 本店</strong></h1>
+<figure class="media"><img src="Attachment/Pasted image 20260416185934.png" alt="Pasted image 20260416185934" loading="lazy" style="max-width:min(100%, 244px);"></figure>
+
+<h3 id="4-熊本县县厅">4、熊本县县厅</h3>
+<p><mark>打卡路飞雕像</mark></p>
+<h3 id="5-水前寺成趣园">5、水前寺成趣园</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260417210304.png" alt="Pasted image 20260417210304" loading="lazy" style="max-width:min(100%, 249px);"></figure>
+<p>游玩结束后乘坐熊本市电 - A-Line返回，有轨地上电车</p>
+<p><strong>时间</strong>   下午四点之前返回熊本站，乘坐新干线前往鹿儿岛</p>
+<h3 id="食事">食事</h3>
+<h3 id="1-桂花-本店">1、 ラーメン 桂花 本店</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260416190432.png" alt="Pasted image 20260416190432" loading="lazy" style="max-width:min(100%, 244px);"></figure>
+
+<h3 id="2-勝烈亭-新市街本店">2、勝烈亭 新市街本店</h3>
+<p><mark>goat级别的炸猪排</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260417201627.png" alt="Pasted image 20260417201627" loading="lazy" style="max-width:min(100%, 239px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260417201601.png" alt="Pasted image 20260417201601" loading="lazy" style="max-width:min(100%, 213px);"></figure>
+
+<details class="callout" open><summary>8.16 熊本市 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和上方旧内容有冲突，以这块为准。
+
+### 结论
+这一天路线本身是合理的：**熊本市内白天 ➔ 下午回熊本站 ➔ 晚上去鹿儿岛中央**
+不需要大改。
+
+### 熊本市内交通券结论
+推荐继续保留 **熊本市电一日券**，但价格要按新版本理解：
+1）**手机版 500円**
+2）**纸质版 700円**
+[熊本市交通局](https://www.kotsu-kumamoto.jp/kihon/pub/detail.aspx?c_id=66&id=1433)
+
+### 推荐走法
+### 寄存行李 ➔ 熊本部长办公室 ➔ 市役所观景台 ➔ 熊本城 ➔ 商店街 / 水前寺 ➔ 回熊本站 ➔ 新干线去鹿儿岛
+
+### 补充结论
+这一天如果单看市内交通，**买手机版市电一日券仍然划算**；
+但这和全九州JR Pass是两套东西，**并不会帮7日JR Pass回本**。
+
+### 注意事项
+1）如果最后不想折腾手机票，也可以现场买纸质版，只是会贵 200円；
+2）下午尽量按原计划在 **16:00 前** 回到熊本站，避免压缩去鹿儿岛后的晚间行程。
+</details>
+
+<p><strong>十一、鹿儿岛</strong> <mark>（预计16号晚到达</mark><br>
+<strong>时间规划</strong>   下午从熊本乘坐<strong>九州新干线</strong>到达鹿儿岛中央站，全程大约1h，到达时间大概晚上<mark>五点多</mark><br>
+          中央站乘坐摩天轮（希望能看到日落黄昏），吃鹿儿岛黑猪肉，<br>
+          之后前往城市观景台，<strong>之后沿着海岸线逛到天文馆商店街</strong><br>
+          第二天早上九点从鹿儿岛站乘坐city view前往仙石园</p>
+<p><strong>交通</strong>   推荐购买 <code>CUTE 1日券 1300円</code><br>
+<a href="https://www.city.kagoshima.lg.jp/sakurajima-ferry/unchin/cute.html">鹿儿岛交通券</a><br>
+<mark>第一天不用购买，第二天去仙岩园和樱岛，可以购买</mark></p>
+<h3 id="2-摩天轮">2、摩天轮</h3>
+<p>地点就位于鹿儿岛中央站附近，非常近<br>
+<a href="https://www.jrkagoshimacity.com/amuran/">鹿儿岛摩天轮</a></p>
+<figure class="media"><img src="Attachment/Pasted image 20260416192357.png" alt="Pasted image 20260416192357" loading="lazy" style="max-width:min(100%, 414px);"></figure>
+<p>一圈大概是14min30s<br>
+（现在官方普通成人票已经是 <strong>800円</strong>；如果有 <strong>JQ CARD</strong>，成人价是 <strong>700円</strong></p>
+<h3 id="3-城山观景台">3、城山观景台</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260416212656.png" alt="Pasted image 20260416212656" loading="lazy" style="max-width:min(100%, 190px);"></figure>
+<p>选择<strong>市电</strong>加上步行的方法，单程时间大约30min</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416201655.png" alt="Pasted image 20260416201655" loading="lazy" style="max-width:min(100%, 228px);"></figure>
+
+<h3 id="晩-飯">晩ご飯</h3>
+<p><mark>鹿儿岛特产黑猪肉</mark></p>
+<h3 id="遊食豚彩-鹿児島店">遊食豚彩 いちにいさん アミュプラザ鹿児島店</h3>
+<p>人均200RMB</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416211809.png" alt="Pasted image 20260416211809" loading="lazy" style="max-width:min(100%, 296px);"></figure>
+
+<p>摩天轮下来后晚上可以在鹿儿岛随便逛逛，可以去<mark>鹿児島天文館本通り</mark>逛逛<br>
+然后可以<strong>一直走到海边，在海边随便逛逛</strong></p>
+<p><strong>鹿儿岛 day1</strong>   <mark>（8.17</mark><br>
+<strong>1、仙岩园</strong>（早上九点开放!</p>
+<figure class="media"><img src="Attachment/Pasted image 20260417203834.png" alt="Pasted image 20260417203834" loading="lazy" style="max-width:min(100%, 238px);"></figure>
+<p><mark>里面还有一个猫猫神社，记得去噢~</mark></p>
+<p><strong>交通</strong>   第二天早上出发，直接从鹿儿岛中央站乘坐<mark>city view</mark>或者<mark>日丰本线</mark>前往<br>
+     （city view包含在 <code>CUTE</code> 里，日丰本线则是单独买票）</p>
+<figure class="media"><img src="Attachment/Pasted image 20260416201033.png" alt="Pasted image 20260416201033" loading="lazy" style="max-width:min(100%, 205px);"></figure>
+
+<p>10:30左右，乘坐city view（半小时一班）回到<strong>水族馆</strong></p>
+<figure class="media"><img src="Attachment/Pasted image 20260417203640.png" alt="Pasted image 20260417203640" loading="lazy" style="max-width:min(100%, 196px);"></figure>
+<p>在水族馆附近吃午饭后，游玩水族馆</p>
+<h3 id="昼飯">昼飯</h3>
+<p><strong>1、廻る寿司めっけもん</strong> （人均150-200，无需预约<br>
+11:00开始营业</p>
+<figure class="media"><img src="Attachment/Pasted image 20260417210829.png" alt="Pasted image 20260417210829" loading="lazy" style="max-width:min(100%, 225px);"></figure>
+<p><mark>回转寿司的顶级らしいです，多位up推荐</mark><br>
+おすすめ：金枪鱼大腩、炙烤星鳗寿司</p>
+<h3 id="5-水族館">5、かごしま水族館</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260417204340.png" alt="Pasted image 20260417204340" loading="lazy" style="max-width:min(100%, 253px);"></figure>
+<p>（持有一日券情况下，门票1600円<br>
+<strong>收集纪念章</strong>  水族馆内通常设有精美的纪念印章，有时还会推出期间限定的科普手册<br>
+大概需要游玩2个小时<br>
+之后，<strong>14:00左右，在港口乘船前往樱岛</strong>，时间约15min<br>
+渡轮很密集，不用担心没有船往返<br>
+<a href="https://www.city.kagoshima.lg.jp/sakurajima-ferry/koro-jikoku/timetable.html">桜島フェリー</a></p>
+<h3 id="6-樱岛">6、樱岛</h3>
+<p><mark>(记得带条毛巾 足汤)</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260417202111.png" alt="Pasted image 20260417202111" loading="lazy" style="max-width:min(100%, 329px);"></figure>
+<p>轮渡上岛后，乘坐樱岛巴士巡游 (Island View)<br>
+到下午16:30，每30分钟一班车<a href="https://www.kotsu-city-kagoshima.jp/wp/wp-content/uploads/2023/07/6e377243eff8ef2be1c99f456cc6b31d.pdf">樱岛巴士</a><br>
+时间考虑，<mark>建议3:40这班或之前离开展望台，返回桜島港</mark></p>
+<h3 id="汤之平展望所-yunohira-observatory">汤之平展望所 (Yunohira Observatory)</h3>
+<p>这是巴士线路的最高点（海拔 373 米），也是离火山口最近的地方。巴士会在这里停靠约 10 分钟供游客下车拍照，可以俯瞰火山的荒凉质感和整个鹿儿岛市的全景。</p>
+<h3 id="溶岩-公園足湯">溶岩なぎさ公園足湯</h3>
+<p>在返回码头的途中，这里有长达百米的免费足浴池，可以一边泡着天然温泉缓解一天的疲劳，一边近距离看着夕阳海景。</p>
+<p><strong>时间规划</strong>  16:30左右乘船，返回鹿儿岛港，然后返回JR鹿儿岛站，<br>
+         <mark>简单吃个晚饭</mark>，然后乘坐<strong>日丰本线</strong>或者<strong>JR雾岛号</strong>前往宫崎市<br>
+全程大概3h，大概晚上<strong>九点</strong>到达宫崎站。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260417212801.png" alt="Pasted image 20260417212801" loading="lazy" style="max-width:min(100%, 374px);"></figure>
+
+<p><strong>鹿儿岛住宿</strong> <mark>（住所比较便宜</mark><br>
+一晚<strong>人均131元</strong>，房间也挺好的，行李寄送，洗衣服务都有。<br>
+可以取消）</p>
+<h3 id="适配这次行程的原因">适配这次行程的原因</h3>
+<p>1）只住 <strong>8.16 这1晚</strong>，主要任务是承接熊本过来后的休息和第二天一早出发；<br>
+2）既然鹿儿岛这站本来就是“短停 1 晚”，价格合适、功能完整就已经很够用了；<br>
+3）有洗衣和行李服务，对九州中后段很友好。</p>
+<h3 id="需要确认">需要确认</h3>
+<p>1）确认它到鹿儿岛中央 / 鹿儿岛站体系到底更近哪边；<br>
+2）因为第二天要早出门，最好确认早餐和退房时间。</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419231452.png" alt="Pasted image 20260419231452" loading="lazy" style="max-width:min(100%, 293px);"></figure>
+
+<details class="callout" open><summary>8.17 鹿儿岛 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和上方旧内容有冲突，以这块为准。
+
+### 结论
+这一天主线可以保留：**仙岩园 ➔ 水族馆 ➔ 樱岛 ➔ 晚上去宫崎**
+而且 **CUTE 1日券** 依然推荐买。
+
+### 鹿儿岛交通券结论
+`CUTE` 当前官方价格：
+1）**1日券 1,300円**
+2）**2日券 1,900円**
+它覆盖 **市巴士 / 市电 / City View / Sakurajima Island View / 樱岛 ferry**
+[鹿儿岛 CUTE 官方](https://www.city.kagoshima.lg.jp/sakurajima-ferry/unchin/cute.html)
+
+### 推荐走法
+### 鹿儿岛中央 ➔ 仙岩园 ➔ 水族馆周边午饭 ➔ 樱岛 ➔ 返回市区简单吃饭 ➔ 晚上去宫崎
+
+### 结论补充
+这一天的城市交通和樱岛交通，核心都在 `CUTE` 里；
+所以**这一整天也不是JR Pass的回本主力**。
+
+### 注意事项
+1）时间上最关键的是下午在樱岛不要拖太晚；
+2）如果当天体力下降，优先保住 **仙岩园 + 樱岛**，水族馆可以缩短；
+3）晚上去宫崎是长距离移动，简单吃饭即可，不建议再临时加夜景点。
+</details>
+
+<p><strong>十二、宫崎县</strong> <mark>（8.18 火曜日</mark><br>
+<strong>时间规划</strong>   前一天晚上到达宫崎市，第二天早上出发，一路南下</p>
+<figure class="media"><img src="Attachment/Pasted image 20260417171150.png" alt="Pasted image 20260417171150" loading="lazy" style="max-width:min(100%, 625px);"></figure>
+<p><strong>理想的情况是</strong>  早上9:40那班最早的巴士从宫崎站出发，11:07到达鹈户神宫；<br>
+            13:22从鹈户神宫出发，13:27到达日南太阳花园；<br>
+            15:31从日南太阳花园出发，16:00到达青岛；<br>
+             青岛返回宫崎站可以坐JR，班次方便，<strong>但是需要注意预约的牛肉的timing</strong><br>
+             晚上在宫崎市区<mark>吃吃</mark>逛逛；</p>
+<p><strong>沿着海岸线</strong>  宫崎站-巴士-鹈户神宫-巴士-日南太阳花园-青岛-JR-宫崎站</p>
+<figure class="media"><img src="Attachment/Pasted image 20260417164558.png" alt="Pasted image 20260417164558" loading="lazy" style="max-width:min(100%, 157px);"></figure>
+<p><strong>交通</strong>  Visit Miyazaki Bus Pass（宫崎交通一日券）、<br>
+<mark>2000円</mark><br>
+<strong>注意</strong>  日南海岸的巴士大约每 1 到 1.5 小时才有一班，在宫崎站的巴士中心上车前，务必先拿一份最新的纸质时刻表。</p>
+<h3 id="1-鹈户神宫">1、鹈户神宫</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260417164957.png" alt="Pasted image 20260417164957" loading="lazy" style="max-width:min(100%, 219px);"></figure>
+
+<p><strong>2、日南太阳花园</strong>（<mark>周三休园</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260417165017.png" alt="Pasted image 20260417165017" loading="lazy" style="max-width:min(100%, 207px);"></figure>
+<p><strong>注意打卡</strong>  <strong>和平纪念碑</strong></p>
+<figure class="media"><img src="Attachment/Pasted image 20260417163829.png" alt="Pasted image 20260417163829" loading="lazy" style="max-width:min(100%, 81px);"></figure>
+
+<h3 id="3-青岛">3、青岛</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260417165050.png" alt="Pasted image 20260417165050" loading="lazy" style="max-width:min(100%, 239px);"></figure>
+<figure class="media"><img src="Attachment/Pasted image 20260417165316.png" alt="Pasted image 20260417165316" loading="lazy" style="max-width:min(100%, 333px);"></figure>
+
+<h3 id="4-平和-塔-八紘之基柱">4、平和の塔（八紘之基柱）</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260417213204.png" alt="Pasted image 20260417213204" loading="lazy" style="max-width:min(100%, 255px);"></figure>
+<p>这座塔始建于 <strong>1940年（昭和15年）</strong>，物理实体上最特殊、也最具争议的一点。整座塔高约 37 米，使用了近1800块来自各地的基石，塔基中包含大量来自<strong>中国（如长城、紫禁城、上海、南京等）</strong>、朝鲜半岛以及东南亚的石块。<br>
+石头上的刻字可能可以分辨出来：上海、长城等。</p>
+<h3 id="晚上可以沿着大淀川一路逛-路上可以买一罐日向夏-一定很tm爽">晚上可以沿着大淀川一路逛，路上可以买一罐日向夏，一定很tm爽~</h3>
+<h3 id="食事">食事</h3>
+<p>1）<strong>日向夏的酒精饮料</strong><br>
+- <strong>九州CRAFT日向夏 (Hideji Beer / ひでじビール)：</strong> 这是宫崎当地极其出名的一款水果拉格啤酒（Fruit Lager）。它完美保留了日向夏的果香，苦味较低，口感非常顺滑。<br>
+- <strong>KIRISHIMA Hyuganatsu (雾岛酒造)：</strong> 雾岛酒造虽然以出产“黑雾岛”烧酎闻名全国，但他们出产的这款日向夏发泡酒也非常惊艳，使用了宫崎地下清澈的裂罅水酿造。<br>
+在宫崎的便利店就可以买到。</p>
+<p>2）<strong>焼肉・鉄板焼ステーキ 橘通りミヤチク APAS</strong><br>
+<mark>需要提前预约！</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260417175510.png" alt="Pasted image 20260417175510" loading="lazy" style="max-width:min(100%, 264px);"></figure>
+<p><a href="https://r.gnavi.co.jp/mu0g83fu0000/menu7/">焼肉・鉄板焼ステーキ 橘通りミヤチク APAS メニュー：おすすめメニュー - 楽天ぐるなび</a><br>
+人均300+ 自助套餐 需要提前了解一下点什么</p>
+<p><strong>宫崎住宿</strong>    <mark>8.17入住，8.19离店</mark><br>
+待定，但是价格合适的酒店还是很多的。</p>
+<h3 id="方案a-jr宫崎酒店-车站近的标准商务酒店">方案A：JR宫崎酒店 / 车站近的标准商务酒店</h3>
+<p>例如人均<strong>300元 / 晚</strong>则能住到很不错的<mark>JR宫崎酒店</mark></p>
+<figure class="media"><img src="Attachment/Pasted image 20260419231915.png" alt="Pasted image 20260419231915" loading="lazy" style="max-width:min(100%, 251px);"></figure>
+<p>房间很好，人均300一晚，可以提前取消</p>
+<h3 id="方案b-更便宜的日式旅馆">方案B：更便宜的日式旅馆</h3>
+<p>或者日式的这家，更经济实惠，也可以提前取消<br>
+不过离宫崎站较远，走路要1.5km，但也可以接受，不赶时间</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419232317.png" alt="Pasted image 20260419232317" loading="lazy" style="max-width:min(100%, 250px);"></figure>
+<p>房间还行，就是地板隔音有点差，人均150一晚</p>
+<h3 id="适配这次行程的原因">适配这次行程的原因</h3>
+<p>1）这里会连住 <strong>8.17 - 8.18 共2晚</strong>，所以宫崎这站最重要的是<strong>稳定、别折腾</strong>；<br>
+2）如果 8.19 要早起坐 Phoenix 号，<strong>更推荐方案A</strong>，离车站近很多；<br>
+3）如果更想压住宿预算、也接受步行和老房子的取舍，方案B 会更省。</p>
+<h3 id="需要确认">需要确认</h3>
+<p>1）最终到底是走“车站近优先”还是“压预算优先”；<br>
+2）无论选哪家，都要确认 8.19 早上赶巴士时的出门动线。</p>
+<details class="callout" open><summary>8.18 宫崎 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和上方旧内容有冲突，以这块为准。
+
+### 结论
+这一天路线本身是顺的：**宫崎站 ➔ 鹈户神宫 ➔ 日南太阳花园 ➔ 青岛 ➔ 回宫崎市区**
+依旧建议以海岸线这条主线为核心，不要再额外加太多点。
+
+### 交通券结论
+`VISIT MIYAZAKI BUS PASS` 当前官方价格是 **2,000円 / 1日**
+面向外国游客，可用于宫崎交通的一般路线巴士。
+[VISIT MIYAZAKI BUS PASS](https://www.miyakoh.co.jp/visit/index.html)
+
+### 推荐走法
+### 宫崎站 ➔ 鹈户神宫 ➔ 太阳花园 ➔ 青岛 ➔ JR回宫崎站
+
+### 注意事项
+1）日南海岸巴士班次疏，出发前一定要拿最新纸质时刻表；
+2）这一天的核心是地方巴士，不是JR，所以仍然不构成“买全九州7日券更划算”的理由；
+3）晚上如果还想吃预约店，白天一定不要压线。
+</details>
+
+<p><strong>十三、福冈市</strong>  （8.19、8.20<br>
+不同于东京和大阪那种一直紧绷着跑景点的大城市，<strong>最后这一天半就以休息、购物和收尾为主</strong>。</p>
+<h3 id="先说-8-19-早上从宫崎去福冈">先说 8.19 早上从宫崎去福冈</h3>
+<h3 id="高速巴士-号">高速巴士 フェニックス号</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260420014414.png" alt="Pasted image 20260420014414" loading="lazy" style="max-width:min(100%, 208px);"></figure>
+<p>优点：<strong>不用换乘，直接到博多BT / 天神BT</strong>，一路坐到福冈最省脑；<br>
+缺点：车程更长，通常需要 <strong>4小时20分 - 4小时50分</strong> 左右。</p>
+<p>适合：前一晚在宫崎玩得比较晚，第二天想省事直达、并且尽量中午前后到福冈的人。</p>
+<h3 id="8-19-到达福冈这一天">8.19（到达福冈这一天）</h3>
+<h3 id="主线-宫崎出发-福冈到达-酒店放行李-入住-acros-天神一带-中洲屋台">主线：宫崎出发 ➔ 福冈到达 ➔ 酒店放行李 / 入住 ➔ Acros / 天神一带 ➔ 中洲屋台</h3>
+<h3 id="时间安排">时间安排</h3>
+<p>上午从宫崎出发，中午前后到福冈；<br>
+下午不要再排太远的点，先把节奏放慢，<strong>把这一天当成真正的休整日</strong>。</p>
+<h3 id="1-酒店位置建议">1、酒店位置建议</h3>
+<p>这两天住 <strong>博多站附近</strong> 或 <strong>Akasaka / 天神西侧</strong> 都成立。<br>
+原因很简单：<br>
+1）8.19 坐 <code>フェニックス号</code> 回福冈，接到博多或天神都比较顺；<br>
+2）8.20 你晚上要去福冈机场国际线，所以无论住哪边都要提前收线；<br>
+3）如果住 <strong>Akasaka / Tenjin WEST</strong>，8.19 晚上在天神、大名、中洲活动会更舒服。</p>
+<h3 id="2-acros-fukuoka-天神一带">2、Acros Fukuoka + 天神一带</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419232808.png" alt="Pasted image 20260419232808" loading="lazy" style="max-width:min(100%, 299px);"></figure>
+<p>下午建议先在 <strong>Acros Fukuoka / 天神 / 商业街</strong> 这一带慢慢逛；<br>
+这里很适合做福冈最后的购物和城市散步，不需要赶。</p>
+<h3 id="3-晚饭-中洲屋台-一蘭本店-二选一或都去">3、晚饭：中洲屋台 / 一蘭本店 二选一或都去</h3>
+<h3 id="福冈中洲屋台-yatai">福冈中洲屋台 (Yatai)</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419232925.png" alt="Pasted image 20260419232925" loading="lazy" style="max-width:min(100%, 283px);"></figure>
+<p>沿着河边慢慢走，挑一家看着顺眼的屋台吃点东西，很适合旅程最后阶段。</p>
+<h3 id="一蘭-本社総本店">一蘭 本社総本店</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419232854.png" alt="Pasted image 20260419232854" loading="lazy" style="max-width:min(100%, 247px);"></figure>
+<p>如果当天想吃得更稳，就先去一蘭，再把中洲当散步项目。</p>
+<p><mark>这一天不建议再硬塞 <strong>福冈塔 / 九州大学 / LaLaport</strong>，不然“收尾日”会又变回赶路日。</mark></p>
+<details class="callout" open><summary>8.19 宫崎 ➔ 福冈 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和上方旧内容有冲突，以这块为准。
+
+### 结论
+既然已经决定 **8.19 坐高速巴士回福冈**，那么最合适的就是选 `フェニックス号` 里**中午12点前后或之前到达福冈** 的那班；
+这样最能保住你下午在福冈市区休整和逛街的时间。
+
+### 推荐到达目标
+按现在的需求，最合适的是：
+1）**11:30 - 11:50 左右到博多 / 天神**
+2）或者 **12:10 - 12:30 左右到博多 / 天神**
+
+### 按官方时刻表可参考的班次（根据时刻表整理）
+1）如果希望更早到，考虑 **宫崎站 7:00 左右出发**，大约 **11:32 到博多BT / 11:48 到西铁天神高速BT**
+2）如果想接近正午，考虑 **宫崎站 7:30 左右出发**，大约 **12:11 到博多BT / 12:27 到西铁天神高速BT**
+3）如果住的是这里写进文档的 **Akasaka / Tenjin WEST** 一带，**在西铁天神高速BT下车会更顺**
+
+### 买票注意事项
+1）这条线是 **座席指定制 / 要预约**
+2）**不能车上买票**，必须提前预约并完成购票 / 发券
+3）普通成人单程 **7,000円**
+4）动态票价目前是 **3,500円 - 7,000円**
+5）动态票价是 **网络限定**，而且**预约后3天内要付款**；如果离乘车日不足3天，则要在前一天前付清，当天预约则需要立刻付款
+6）官方写明**预约从乘车日1个月前开始**
+
+### 乘坐时的注意事项
+1）全车禁烟，车上有洗手间；
+2）途中通常会在 **霧島SA** 和 **宮原SA** 各休息约15分钟；
+3）暑假是旺季，想保住“中午前后到福冈”的目标，建议尽早订，不要等临近出发再看；
+4）如果最后住在 **Akasaka / Tenjin** 一带，下车点优先考虑 **西铁天神高速BT**；
+5）如果后面更看重第二天去机场最省事，也可以直接选 **博多BT** 下车。
+
+### 相关页面
+[Phoenix 官方页](https://www.miyakoh.co.jp/express/phoenix.html)
+[Phoenix 官方时刻表 PDF（2026年3月1日改正）](https://www.miyakoh.co.jp/express/mediafile/phoenix_20260301.pdf)
+[高速巴士预约页](https://www.highwaybus.com/gp/index)
+</details>
+
+<h3 id="8-20-回国当天">8.20（回国当天）</h3>
+<h3 id="主线-退房寄存行李-福冈塔-百道海滨-回酒店-寄存点取行李-lalaport-福冈机场">主线：退房寄存行李 ➔ 福冈塔 / 百道海滨 ➔ 回酒店 / 寄存点取行李 ➔ LaLaport ➔ 福冈机场</h3>
+<h3 id="关键原则">关键原则</h3>
+<p>1）今天是<strong>回国日</strong>，所以行程必须围绕 <strong>退房、寄存、拿行李、去国际线</strong> 来排；<br>
+2）<strong>九州大学伊都校区不建议放在主线里</strong>，因为它太远，会把今天重新拉成一整天折返；<br>
+3）真正推荐保留的，是 <strong>福冈塔</strong> 和 <strong>LaLaport</strong> 这两个更适合最后一天的点。</p>
+<h3 id="1-早上退房和行李">1、早上退房和行李</h3>
+<p>一般酒店退房时间多半在 <strong>10:00 - 11:00</strong>；<br>
+退房后直接把行李寄存在酒店前台，晚上出发去机场前再回来拿。<br>
+如果酒店不能寄存，再考虑放到 <strong>博多站寄存柜</strong>。</p>
+<h3 id="2-上午-福冈塔-百道海滨">2、上午：福冈塔 + 百道海滨</h3>
+<h3 id="福冈塔-地标建筑">福冈塔（地标建筑）</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419232659.png" alt="Pasted image 20260419232659" loading="lazy" style="max-width:min(100%, 233px);"></figure>
+<p>门票大概 <strong>640 - 800円</strong>；<br>
+这一块更适合放在白天或傍晚前，不建议压到最后一刻。</p>
+<p>上午去塔和海边散步，节奏会比 8.19 更舒服，也更适合拍照。</p>
+<h3 id="3-下午-lala-port-fukuoka">3、下午：LaLa Port Fukuoka</h3>
+<h3 id="lala-port-fukuoka">LaLa Port Fukuoka</h3>
+<p>看高达，顺便逛逛街</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419233123.png" alt="Pasted image 20260419233123" loading="lazy" style="max-width:min(100%, 278px);"></figure>
+<p>除非台风或者暴雨，否则都能看到<strong>夜晚的灯光秀表演和机械运作</strong></p>
+<figure class="media"><img src="Attachment/b521bc9bcb05e3149cae873137668c23.jpg" alt="b521bc9bcb05e3149cae873137668c23" loading="lazy" style="max-width:min(100%, 153px);"></figure>
+<p>复刻打卡一下这个机位</p>
+<p>这个点适合放在回酒店 / 寄存点取行李之前或之后，看你当天买东西多不多来决定；<br>
+如果中午就已经买了很多东西，那就建议<strong>先回酒店 / 博多站取行李，再去LaLaport，最后直接去机场</strong>。</p>
+<h3 id="4-九州大学-伊都校区-理科区-1号馆-可选项">4*、九州大学 - 伊都校区 - 理科区 - 1号馆（可选项）</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419233534.png" alt="Pasted image 20260419233534" loading="lazy" style="max-width:min(100%, 220px);"></figure>
+<p>从博多站过去大概要 <strong>1小时左右</strong>，来回吃时间；</p>
+<figure class="media"><img src="Attachment/Pasted image 20260419233428.png" alt="Pasted image 20260419233428" loading="lazy" style="max-width:min(100%, 303px);"></figure>
+<p>所以<strong>纯可选项</strong>：<br>
+只有在 8.20 一早特别早起、时间充裕的情况下，再单独去。</p>
+<p>换句话说，<strong>8.20 不建议同时保福冈塔 + 九州大学 + LaLaport</strong>。</p>
+<details class="callout" open><summary>8.20 福冈 / 回国 交通情况整理（点击展开）</summary>
+### 以下为2026年4月核查后的执行版；如果和上方旧内容有冲突，以这块为准。
+
+### 结论
+这一天继续按现在的回国日逻辑执行即可：
+### 退房寄存行李 ➔ 福冈塔 / 百道海滨 ➔ 取行李 ➔ LaLaport ➔ 福冈机场国际线
+
+### 关键提醒
+1）最晚 **16:00 - 16:30** 到福冈机场国际线；
+2）最晚 **15:30 - 16:00** 就该回酒店 / 博多 / 天神取行李；
+3）回国日不要再临时加大学或远郊点。
+
+### 住宿位置补充
+目前选的 **Akasaka Station / LiVEMAX Fukuoka Tenjin WEST** 是可行的；
+只是去机场国际线时比住博多多一点换乘和时间管理，所以当天更要守住“提前收线”这个原则。
+</details>
+
+<h3 id="福冈住宿">福冈住宿</h3>
+<h3 id="hotel-livemax-fukuoka-tenjin-west">HOTEL LiVEMAX Fukuoka Tenjin WEST</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260420230832.png" alt="Pasted image 20260420230832" loading="lazy" style="max-width:min(100%, 246px);"></figure>
+<p>地址在 <strong>大名 2 丁目</strong> 一带，离 <strong>地下铁机场线 Akasaka Station</strong> 很近；<br>
+从这里去 <strong>天神 / Acros / 大名 / 中洲</strong> 都比较顺，8.19 住这里逛市区会很舒服。<br>
+这晚先按<strong>人均150元</strong>记。</p>
+<p>对这次两天行程的适配性：<br>
+1）<strong>8.19 到达福冈后</strong>，接去赤坂 / 天神这一带都不难；<br>
+2）<strong>8.19 晚上</strong> 去天神、大名、中洲这些点，比住得太偏更方便；<br>
+3）<strong>8.20 去福冈机场国际线</strong> 也能走地下铁机场线这一套，只是相比直接住博多，最后一步会多一点换乘和时间管理。</p>
+<h3 id="订房前建议额外确认两件事">订房前建议额外确认两件事</h3>
+<p>1）是否支持 <strong>退房后寄存行李</strong>；<br>
+2）具体的 <strong>check-out 时间</strong>，这样 8.20 白天安排会更稳。</p>
+<h3 id="回国">回国</h3>
+<figure class="media"><img src="Attachment/Pasted image 20260419233235.png" alt="Pasted image 20260419233235" loading="lazy" style="max-width:min(100%, 245px);"></figure>
+<p>福冈机场牛逼就牛逼在离市区很近。</p>
+<h3 id="按国际线标准处理">按国际线标准处理</h3>
+<p>建议最晚 <strong>16:00 - 16:30</strong> 就到达福冈机场国际线；<br>
+这样可以把值机、托运行李、安检和最后买点东西的时间都留出来，不会太赶。</p>
+<h3 id="从博多站出发怎么去最顺">从博多站出发怎么去最顺</h3>
+<p>1）先从酒店 / 寄存点取好行李；<br>
+2）从博多站前往机场方向；<br>
+3）如果走的是常规公共交通，就记得<strong>国际线和国内线不是同一栋楼</strong>，要把换乘和接驳时间一起算进去。</p>
+<h3 id="所以-8-20-的最后节奏建议是">所以 8.20 的最后节奏建议是</h3>
+<p>下午 <strong>15:00 - 15:30</strong> 左右结束市区行程；<br>
+最晚 <strong>15:30 - 16:00</strong> 回到酒店 / 寄存点取行李；<br>
+然后直接去福冈机场，不要再临时加点。</p>
+<details class="callout" open><summary>九州餐饮整理（点击展开）</summary>
+### 说明
+1）早餐统一按 **便利店 600円** 计算；
+2）文中写的是人民币价格的餐厅，这里按 **2026年4月上旬 1 RMB ≈ 23 JPY** 粗算成日元；
+3）只统计三餐，不把零食、酒饮和景区小吃并入正餐。
+
+### 8.14 日田 ➔ 熊本
+早餐：便利店 **600円**
+午餐：日田主线中去打卡jsc打工过的店，按 **1000 - 1400円**
+晚餐：熊本市区简餐，按 **1000 - 1500円**
+### 当日餐饮小计：2600 - 3500円
+
+### 8.15 熊本 ➔ 高森 / 阿苏 ➔ 熊本
+早餐：便利店 **600円**
+午餐：阿苏线机动简餐 / 自备干粮，按 **800 - 1200円**
+晚餐：**勝烈亭 新市街本店**，按 **3000円** 预算
+### 当日餐饮小计：4400 - 4800円
+
+### 8.16 熊本市 ➔ 鹿儿岛
+早餐：便利店 **600円**
+午餐：**桂花 本店**，文中已写熊本午饭按 **1000円左右**
+晚餐：鹿儿岛黑猪肉 **遊食豚彩 いちにいさん**， **人均200 RMB**，折算约 **4600円**
+### 当日餐饮小计：6200円左右
+
+### 8.17 鹿儿岛 ➔ 宫崎
+早餐：便利店 **600円**
+午餐：**廻る寿司めっけもん**，文中已写 **150 - 200 RMB**，折算约 **3450 - 4600円**
+晚餐：去宫崎前简单晚饭，按 **1000 - 1500円**
+### 当日餐饮小计：5050 - 6700円
+
+### 8.18 宫崎
+早餐：便利店 **600円**
+午餐：海岸线途中简餐，按 **1000 - 1500円**
+晚餐：**橘通りミヤチク APAS**，文中已写 **300+ RMB**；结合公开菜单和店铺预算，这里按 **6500 - 7000円**
+### 当日餐饮小计：8100 - 9100円
+
+### 8.19 宫崎 ➔ 福冈
+早餐：便利店 **600円**
+午餐：天神 / Acros 一带简餐，按 **1000 - 1500円**
+晚餐：**中洲屋台** 按 **1500 - 3000円**；如果改去 **一蘭本社総本店**，按 **1000円左右**
+### 当日餐饮小计：2600 - 5100円
+
+### 8.20 福冈 / 回国
+早餐：便利店 **600円**
+午餐：福冈塔 / LaLaport 一带简餐，按 **1000 - 1500円**
+晚餐：机场 / 市区收尾简餐，按 **1000 - 1500円**
+### 当日餐饮小计：2600 - 3600円
+
+### 九州 7 日餐饮小计
+### 约31550 - 39000円
+</details>
+
+<details class="callout" open><summary>九州门票整理（点击展开）</summary>
+### 说明
+1）按 2026 年 4 月核到的信息整理；
+2）像火山口、神社本体、城市散步这类不一定单收门票的，不重复硬算；
+3）文中原先写过的旧价格，如果和 2026 年官方不一致，以这里为准。
+
+### 8.14 日田 ➔ 熊本
+1）**進撃の巨人 in HITA ミュージアム ANNEX**：**700円**  
+2）如果把日田市内两馆都看，**共通券 1000円**
+[日田市官方](https://www.city.hita.oita.jp/site/hitanioideyo/2866.html)
+### 当日门票小计：700 - 1000円
+
+### 8.15 熊本 ➔ 高森 / 阿苏 ➔ 熊本
+1）**高森湧水トンネル公園**：**300円**（如果去）  
+[南阿苏铁道沿线介绍](https://www.mt-torokko.com/sightseeing/yusui-tunnel/)
+2）**上色见熊野座神社** 本身免费
+### 当日门票小计：0 - 300円
+
+### 8.16 熊本市 ➔ 鹿儿岛
+1）**熊本城**：**800円**  
+[熊本城官方](https://castle.kumamoto-guide.jp/en/info/)
+2）**水前寺成趣园**：**500円**（2026年4月起）  
+[水前寺成趣园官方](https://www.suizenji.or.jp/en/news/suizenji-admission-fee-revision-2026-04-01/)
+### 当日门票小计：1300円
+
+### 8.17 鹿儿岛 ➔ 宫崎
+1）**仙岩园**：**1600円**  
+[仙岩园官方](https://www.senganen.jp/about/)
+2）**鹿儿岛水族馆**：**1600 - 2000円**
+备注：官方成人票 2000 円；文中原先按 CUTE 优惠思路记过 1600 円，这里保留成区间。  
+[鹿儿岛水族馆官方](https://ioworld.jp/english)
+3）**Amuran 摩天轮**：**800円**
+备注：2026年4月官方普通成人票为 **800円**，**JQ CARD** 会员价为 **700円**；目前没有确认到可靠的 **CUTE 联动优惠**，所以这里不再按 CUTE 折扣计算。  
+[Amuran 官方](https://amu-kagoshima.com/amuran/)
+### 当日门票小计：4000 - 4400円
+
+### 8.18 宫崎
+1）**鹈户神宫**：免费
+2）**日南太阳花园（Sun Messe Nichinan）**：**1000円**  
+[Sun Messe Nichinan 官方](https://www.sun-messe.co.jp/time)
+### 当日门票小计：1000円
+
+### 8.19 宫崎 ➔ 福冈
+当前主线里的 **Acros / 天神 / 中洲屋台** 不需要固定门票。
+### 当日门票小计：0円
+
+### 8.20 福冈 / 回国
+1）**福冈塔**：**1000円**（2026年4月官方成人票）  
+[福冈塔官方](https://www.fukuokatower.co.jp/charge/)
+2）**LaLaport / 高达外观打卡** 本身免费
+### 当日门票小计：1000円
+
+### 九州 7 日门票小计
+### 约8000 - 9000円
+</details>
+
+<hr>
+<h2 id="交通总费用总览-按当前方案-概算">交通总费用总览（按当前方案 / 概算）</h2>
+<h3 id="说明">说明</h3>
+<p>1）以下只统计<strong>交通相关支出</strong>，<strong>不含门票、餐饮、住宿</strong>；<br>
+2）尾道部分<strong>不含租车费用</strong>，只算城际交通和市内公共交通；<br>
+3）九州段因为 <strong>8.15 阿苏当天机动、8.19 凤凰号动态票价、8.20 福冈市内机动</strong> 仍有浮动，所以按区间估算。</p>
+<h3 id="1-大阪-3-日">1、大阪 3 日</h3>
+<ul>
+<li>Day1：<strong>2620円</strong></li>
+<li>Day2：<strong>约4590円</strong></li>
+<li>Day3：<strong>约5210円</strong></li>
+<li><strong>小计：约12420円</strong></li>
+</ul>
+<h3 id="2-京都-2-日">2、京都 2 日</h3>
+<ul>
+<li>Day1：<strong>约4200 - 4700円</strong></li>
+<li>Day2：<strong>约1800 - 2400円</strong></li>
+<li><strong>小计：约6000 - 7100円</strong></li>
+</ul>
+<h3 id="3-神户-高松-尾道-广岛-濑户内海-4-日">3、神户 - 高松 - 尾道 - 广岛（濑户内海 4 日）</h3>
+<ul>
+<li>8.10 神户：<strong>约3300円</strong></li>
+<li>8.11 高松：<strong>约5320円</strong></li>
+<li>8.12 尾道：<strong>约3000 - 3500円</strong></li>
+<li>8.13 广岛：<strong>约7860円</strong></li>
+<li><strong>小计：约19480 - 19980円</strong></li>
+</ul>
+<h3 id="4-九州-7-日">4、九州 7 日</h3>
+<ul>
+<li>8.14 博多 ➔ 日田 ➔ 熊本：<strong>约7800 - 10000円</strong></li>
+<li>8.15 熊本 ➔ 高森 / 上色见 ➔ 阿苏 ➔ 熊本：<strong>约6500 - 7000円</strong></li>
+<li>8.16 熊本市内 + 熊本 ➔ 鹿儿岛：<strong>约7940 - 8470円</strong></li>
+<li>8.17 鹿儿岛市内 + 鹿儿岛 ➔ 宫崎：<strong>约4700 - 6490円</strong></li>
+<li>8.18 宫崎海岸线一日：<strong>约2500円</strong></li>
+<li>8.19 宫崎 ➔ 福冈（Phoenix）：<strong>约3500 - 7000円</strong></li>
+<li>8.20 福冈市内机动 + 去机场：<strong>约1200 - 1500円</strong></li>
+<li><strong>小计：约34140 - 42960円</strong></li>
+</ul>
+<h3 id="交通总和">交通总和</h3>
+<ul>
+<li><strong>约74240 - 82460円，即3192 - 3545元</strong></li>
+</ul>
+<p>如果后面抢到了 <strong>高松早卖巴士票</strong>、或者 <strong>8.19 凤凰号拿到低动态票价</strong>，总交通还可以再往下压一点。</p>
+<h2 id="住宿总费用总览-按当前方案-人均概算">住宿总费用总览（按当前方案 / 人均概算）</h2>
+<h3 id="说明">说明</h3>
+<p>1）以下统一按文档里现在写的<strong>人均人民币口径</strong>来记；<br>
+2）这里只算<strong>住宿本身</strong>，不含早餐、税费浮动、门票和交通；<br>
+3）宫崎目前还保留了两档酒店，所以九州段住宿会写成区间。</p>
+<h3 id="1-大阪-3-日">1、大阪 3 日</h3>
+<ul>
+<li>大阪住处：<strong>120元 / 晚 × 3晚</strong></li>
+<li><strong>小计：360元 / 人</strong></li>
+</ul>
+<h3 id="2-京都-2-日">2、京都 2 日</h3>
+<ul>
+<li>旅館 あづまや：<strong>267元 / 晚 × 2晚</strong></li>
+<li><strong>小计：534元 / 人</strong></li>
+</ul>
+<h3 id="3-神户-高松-尾道-广岛-濑户内海-4-日">3、神户 - 高松 - 尾道 - 广岛（濑户内海 4 日）</h3>
+<ul>
+<li>神户：<strong>约220元 / 晚 × 1晚</strong></li>
+<li>高松：<strong>240元 / 晚 × 1晚</strong></li>
+<li>尾道：<strong>约220元 / 晚 × 1晚</strong></li>
+<li>广岛：<strong>0晚</strong>（夜巴去博多）</li>
+<li><strong>小计：约680元 / 人</strong></li>
+</ul>
+<h3 id="4-九州-7-日">4、九州 7 日</h3>
+<ul>
+<li>熊本：<strong>223元 / 晚 × 2晚 = 446元</strong></li>
+<li>鹿儿岛：<strong>131元 / 晚 × 1晚 = 131元</strong></li>
+<li>宫崎：<strong>150 - 300元 / 晚 × 2晚 = 300 - 600元</strong></li>
+<li>福冈：<strong>150元 / 晚 × 1晚 = 150元</strong></li>
+<li><strong>小计：约1027 - 1327元 / 人</strong></li>
+</ul>
+<h3 id="住宿总和">住宿总和</h3>
+<ul>
+<li><strong>约2601 - 2901元 / 人</strong></li>
+</ul>
+<p>如果最后在宫崎选择离车站更近的酒店，住宿总额会落在上沿；如果继续走便宜旅馆方案，总额会更接近下沿。</p>
+<h2 id="餐饮总费用总览-按当前方案-概算">餐饮总费用总览（按当前方案 / 概算）</h2>
+<h3 id="说明">说明</h3>
+<p>1）早餐统一按 <strong>便利店 600円</strong> 计算；<br>
+2）没写死具体餐厅的午晚餐，按当地便宜餐馆均价估；<br>
+3）文中原本用人民币写的餐厅，统一按 <strong>2026年4月上旬 1 RMB ≈ 23 JPY</strong> 粗算；<br>
+4）这里只算每日三餐，零食、甜品、酒水和景区小吃未并入总额。</p>
+<h3 id="1-大阪-3-日">1、大阪 3 日</h3>
+<ul>
+<li><strong>约10000 - 11300円</strong></li>
+</ul>
+<h3 id="2-京都-2-日">2、京都 2 日</h3>
+<ul>
+<li><strong>约6200 - 7100円</strong></li>
+</ul>
+<h3 id="3-神户-高松-尾道-广岛-濑户内海-4-日">3、神户 - 高松 - 尾道 - 广岛（濑户内海 4 日）</h3>
+<ul>
+<li><strong>约12000 - 15500円</strong></li>
+</ul>
+<h3 id="4-九州-7-日">4、九州 7 日</h3>
+<ul>
+<li><strong>约31550 - 39000円</strong></li>
+</ul>
+<h3 id="餐饮总和">餐饮总和</h3>
+<ul>
+<li><strong>约59750 - 72900円，即人民币2570 - 3135元</strong></li>
+</ul>
+<h2 id="门票总费用总览-按当前方案-概算">门票总费用总览（按当前方案 / 概算）</h2>
+<h3 id="说明">说明</h3>
+<p>1）这里只统计景点门票 / 观览费，不含交通、餐饮、住宿；<br>
+2）标成“可选”的项目，已经在区间里体现；<br>
+3）若临近出发前个别景点再次调价，以景点官方公告为准。</p>
+<h3 id="1-大阪-3-日">1、大阪 3 日</h3>
+<ul>
+<li><strong>2780円（不登 Harukas） / 4780円（登 Harukas）</strong></li>
+</ul>
+<h3 id="2-京都-2-日">2、京都 2 日</h3>
+<ul>
+<li><strong>约1300 - 1400円</strong></li>
+</ul>
+<h3 id="3-神户-高松-尾道-广岛-濑户内海-4-日">3、神户 - 高松 - 尾道 - 广岛（濑户内海 4 日）</h3>
+<ul>
+<li><strong>约2900 - 3200円</strong></li>
+</ul>
+<h3 id="4-九州-7-日">4、九州 7 日</h3>
+<ul>
+<li><strong>约8000 - 9000円</strong></li>
+</ul>
+<h3 id="门票总和">门票总和</h3>
+<ul>
+<li><strong>约14980 - 18380円</strong></li>
+</ul>
+<h2 id="综合预算总览-交通-住宿-餐饮-门票">综合预算总览（交通 + 住宿 + 餐饮 + 门票）</h2>
+<h3 id="说明">说明</h3>
+<p>1）为了把四类费用放到同一口径里，这里先把<strong>住宿的人均人民币</strong>按 <strong>1 CNY ≈ 23.3 JPY</strong> 粗算成日元；<br>
+2）这个汇率按 <strong>2026年4月中旬</strong> 的中间价近似处理，只用于预算估算；<br>
+3）实际刷卡、现金兑换、平台结算时会有少量偏差，所以综合预算只看区间即可。</p>
+<h3 id="1-大阪-3-日">1、大阪 3 日</h3>
+<ul>
+<li>交通：<strong>约12420円</strong></li>
+<li>住宿：<strong>约8388円</strong>（360元 × 23.3）</li>
+<li>餐饮：<strong>约10000 - 11300円</strong></li>
+<li>门票：<strong>2780円（不登 Harukas） / 4780円（登 Harukas）</strong></li>
+<li><strong>大阪 3 日综合小计：约33588 - 36888円</strong></li>
+<li>浮动原因：<br>
+  1）是否登 <strong>Harukas 300</strong> 会直接带来约 <strong>2000円</strong> 差额；<br>
+  2）Day2、Day3 的午晚餐没有全部锁死，餐饮会有小幅波动。</li>
+</ul>
+<h3 id="2-京都-2-日">2、京都 2 日</h3>
+<ul>
+<li>交通：<strong>约6000 - 7100円</strong></li>
+<li>住宿：<strong>约12442円</strong>（534元 × 23.3）</li>
+<li>餐饮：<strong>约6200 - 7100円</strong></li>
+<li>门票：<strong>约1300 - 1400円</strong></li>
+<li><strong>京都 2 日综合小计：约25942 - 28042円</strong></li>
+<li>浮动原因：<br>
+  1）Day1 岚山寺院是串联游，<strong>二尊院 / 常寂光寺二选一</strong> 会带来一点点门票差；<br>
+  2）两天都保留了一部分机动简餐空间，所以交通和餐饮都有轻微区间。</li>
+</ul>
+<h3 id="3-神户-高松-尾道-广岛-濑户内海-4-日">3、神户 - 高松 - 尾道 - 广岛（濑户内海 4 日）</h3>
+<ul>
+<li>交通：<strong>约19480 - 19980円</strong></li>
+<li>住宿：<strong>约15844円</strong>（680元 × 23.3）</li>
+<li>餐饮：<strong>约12000 - 15500円</strong></li>
+<li>门票：<strong>约2900 - 3200円</strong></li>
+<li><strong>濑户内海 4 日综合小计：约50224 - 54524円</strong></li>
+<li>浮动原因：<br>
+  1）高松巴士是否抢到 <strong>早卖票</strong>，会影响交通下沿；<br>
+  2）尾道和广岛两天的正餐都没有完全锁店，餐饮区间会更明显；<br>
+  3）广岛是否进入 <strong>严岛神社回廊内部</strong>，会让门票多出一小段。</li>
+</ul>
+<h3 id="4-九州-7-日">4、九州 7 日</h3>
+<ul>
+<li>交通：<strong>约34140 - 42960円</strong></li>
+<li>住宿：<strong>约23929 - 30919円</strong>（1027 - 1327元 × 23.3）</li>
+<li>餐饮：<strong>约31550 - 39000円</strong></li>
+<li>门票：<strong>约8000 - 9000円</strong></li>
+<li><strong>九州 7 日综合小计：约97619 - 121879円</strong></li>
+<li>浮动原因：<br>
+  1）<strong>8.15 阿苏</strong> 当天跑到什么强度，会同时影响交通和餐饮；<br>
+  2）<strong>8.19 Phoenix 号</strong> 是动态票价，是九州段交通波动的最大来源之一；<br>
+  3）宫崎住宿还保留了两档方案，会直接影响住宿上沿和下沿；<br>
+  4）鹿儿岛水族馆、Amuran 摩天轮等存在普通票 / 优惠票差异，门票会有小区间。</li>
+</ul>
+<h3 id="全篇综合预算总和">全篇综合预算总和</h3>
+<ul>
+<li><strong>约207373 - 241333円 / 人</strong></li>
+</ul>
+<h3 id="按当前汇率折算成人民币">按当前汇率折算成人民币</h3>
+<ul>
+<li>约 <strong>8900 - 10360元 / 人</strong></li>
+</ul>
+<h3 id="整体波动的主要来源">整体波动的主要来源</h3>
+<p>1）<strong>九州段</strong> 占了绝大部分波动，尤其是 <code>8.15 阿苏</code>、<code>8.19 Phoenix 号</code>、<code>宫崎住宿档位</code>；<br>
+2）<strong>大阪段</strong> 是否登 <code>Harukas 300</code> 是最明确的一笔可选差额；<br>
+3）<strong>濑户内海段</strong> 的餐饮和高松早卖巴士票，会带来中等强度的上下浮动；<br>
+4）整体上看，真正把预算拉开的，不是单个门票，而是<strong>九州段交通 + 餐饮 + 住宿</strong> 的叠加。</p>
+    </main>
+  </div>
+</body>
+</html>
