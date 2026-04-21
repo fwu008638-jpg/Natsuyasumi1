@@ -85,6 +85,48 @@
       position: relative;
       z-index: 1;
     }
+    .side-art {
+      position: fixed;
+      top: 72px;
+      bottom: 24px;
+      width: min(25vw, 320px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.34;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: saturate(1.04) contrast(1.02);
+    }
+    .side-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(215, 243, 255, 0.04), rgba(215, 243, 255, 0.36));
+      border-radius: 28px;
+    }
+    .side-art img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 28px;
+      box-shadow: 0 18px 40px rgba(28, 102, 149, 0.08);
+      mask-image: linear-gradient(to right, rgba(0,0,0,0.92), rgba(0,0,0,0.72), rgba(0,0,0,0.18), transparent);
+      -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.92), rgba(0,0,0,0.72), rgba(0,0,0,0.18), transparent);
+    }
+    .side-art--left {
+      left: 18px;
+      transform: rotate(-3deg);
+    }
+    .side-art--right {
+      right: 18px;
+      transform: rotate(3deg);
+    }
+    .side-art--right img {
+      transform: scaleX(-1);
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.92), rgba(0,0,0,0.72), rgba(0,0,0,0.18), transparent);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.92), rgba(0,0,0,0.72), rgba(0,0,0,0.18), transparent);
+    }
     .author-email {
       position: fixed;
       top: 18px;
@@ -757,6 +799,9 @@
       .layout {
         grid-template-columns: 1fr;
       }
+      .side-art {
+        display: none;
+      }
       .sidebar {
         position: static;
         max-height: none;
@@ -801,6 +846,8 @@
   </style>
 </head>
 <body>
+  <div class="side-art side-art--left" aria-hidden="true"><img src="site-assets/summer-side-art.jpg" alt=""></div>
+  <div class="side-art side-art--right" aria-hidden="true"><img src="site-assets/summer-side-art.jpg" alt=""></div>
   <div class="author-email"><strong>作者邮箱</strong><a href="mailto:fwu008638@gmail.com">fwu008638@gmail.com</a></div>
   <div class="layout">
     <aside class="sidebar">
