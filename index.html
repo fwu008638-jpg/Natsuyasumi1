@@ -535,20 +535,21 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(300px, 0.86fr) minmax(240px, 0.62fr) minmax(380px, 1.08fr);
-      gap: 22px;
-      align-items: stretch;
+      grid-template-columns: minmax(0, 1fr) minmax(380px, 0.86fr);
+      gap: clamp(28px, 5vw, 70px);
+      align-items: center;
+      min-height: 620px;
     }
     .hero-copy {
       position: relative;
-      min-height: 520px;
       display: flex;
       flex-direction: column;
       justify-content: start;
+      align-self: stretch;
+      padding-top: 8px;
     }
     .hero-poster {
       align-self: stretch;
-      min-height: 520px;
       margin: 0;
       display: flex;
       align-items: center;
@@ -567,8 +568,8 @@
       position: relative;
       z-index: 1;
       display: block;
-      width: min(100%, 460px);
-      max-height: 520px;
+      width: min(100%, 520px);
+      max-height: 620px;
       height: auto;
       object-fit: contain;
       border-radius: 28px;
@@ -592,10 +593,15 @@
       box-shadow: 0 8px 18px rgba(28, 102, 149, 0.08);
     }
     .hero h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2.45rem, 5vw, 4.1rem);
+      margin: 0;
+      max-width: none;
+      color: #106ea8;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", "Source Han Serif JP", serif;
+      font-size: clamp(2rem, 3.9vw, 3.45rem);
       line-height: 1.08;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      text-shadow: 0 10px 28px rgba(28, 102, 149, 0.15);
     }
     .hero p {
       margin: 0;
@@ -1062,14 +1068,15 @@
       }
       .hero-grid {
         grid-template-columns: 1fr;
+        min-height: auto;
       }
       .hero-copy,
       .hero-poster {
         min-height: auto;
       }
       .hero-poster img {
-        width: min(100%, 420px);
-        max-height: 420px;
+        width: min(100%, 460px);
+        max-height: 520px;
       }
       .budget-visuals {
         grid-template-columns: 1fr;
@@ -1121,7 +1128,7 @@
         grid-template-columns: 1fr;
       }
       .hero h1 {
-        font-size: 2.1rem;
+        font-size: clamp(1.35rem, 7vw, 2.1rem);
       }
       .bgm-panel-toggle {
         left: 14px;
@@ -1184,29 +1191,7 @@
       <section class="hero">
         <div class="hero-grid">
           <div class="hero-copy">
-            <h1>夏休み日本旅行攻略</h1>
-            <p>把整趟行程整理成一份可以直接带着走的旅行攻略，包含每日路线、预算统计、圣地巡礼、餐厅打卡和交通决策。</p>
-            <section class="hero-card hero-card--compact" aria-label="旅程概览">
-              <h2>旅程概览</h2>
-              <div class="hero-stats">
-                <div class="hero-stat">
-                  <strong>8.5 - 8.20</strong>
-                  <span>16天夏休み行程</span>
-                </div>
-                <div class="hero-stat">
-                  <strong>关西 → 九州</strong>
-                  <span>一路南下的移动主线</span>
-                </div>
-                <div class="hero-stat">
-                  <strong>预算已拆分</strong>
-                  <span>交通 / 住宿 / 餐饮 / 门票</span>
-                </div>
-                <div class="hero-stat">
-                  <strong>可边看边勾</strong>
-                  <span>每日 checklist 可点击记录</span>
-                </div>
-              </div>
-            </section>
+            <h1>夏の旅~青い空と海に会いに行こう</h1>
             <div class="hero-route">
               <span class="route-pill">大阪 3日</span>
               <span class="route-pill">京都 2日</span>
@@ -1220,16 +1205,6 @@
               <span class="anime-sticker">《吹响吧！上低音号》<small>宇治 / 大吉山</small></span>
               <span class="anime-sticker">《进击的巨人》<small>日田</small></span>
             </div>
-          </div>
-          <div class="hero-card-stack">
-          <section class="hero-card hero-card--anime" aria-label="巡礼亮点">
-            <h2>巡礼亮点</h2>
-            <ul>
-              <li><strong>关西前半段</strong><span>从大阪、京都到神户，把《夏日重现》《轻音少女》《玉子市场》《吹响吧！上低音号》串成一条线。</span></li>
-              <li><strong>中段濑户内海</strong><span>神户、高松、尾道、广岛是整趟旅程里最像“夏天公路片”的部分，海、岛、轮渡和骑行都会集中出现。</span></li>
-              <li><strong>九州后半段</strong><span>日田和阿苏更偏热血与神秘氛围，和前面的海风段形成很强的节奏反差。</span></li>
-            </ul>
-          </section>
           </div>
           <figure class="hero-poster" aria-label="夏日旅行海报">
             <img src="site-assets/hero-poster.png" alt="夏日旅行海报" loading="eager" decoding="async">
