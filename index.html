@@ -578,6 +578,15 @@
       box-shadow: 0 28px 54px rgba(28, 102, 149, 0.16);
       background: rgba(255, 255, 255, 0.24);
     }
+    .hero-poster picture {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: min(100%, 520px);
+    }
+    .hero-poster picture img {
+      width: 100%;
+    }
     .hero-kicker {
       display: inline-flex;
       align-items: center;
@@ -1082,6 +1091,9 @@
         width: min(100%, 460px);
         max-height: 520px;
       }
+      .hero-poster picture {
+        width: min(100%, 460px);
+      }
       .hero-poster {
         padding-top: 18px;
       }
@@ -1098,8 +1110,8 @@
     }
     @media (max-width: 640px) {
       .layout {
-        width: min(100% - 24px, 1440px);
-        margin: 22px auto;
+        width: min(100% - 18px, 1440px);
+        margin: 14px auto;
       }
       .sidebar {
         padding: 18px 16px;
@@ -1114,6 +1126,20 @@
       .budget-dashboard {
         padding: 18px;
         border-radius: 22px;
+      }
+      .content {
+        padding: 18px 12px;
+        border-radius: 24px;
+      }
+      .hero {
+        padding: 20px 14px 18px;
+        border-radius: 24px;
+      }
+      .hero-grid {
+        gap: 16px;
+      }
+      .hero-copy {
+        padding-top: 0;
       }
       .budget-grid {
         grid-template-columns: 1fr;
@@ -1135,7 +1161,45 @@
         grid-template-columns: 1fr;
       }
       .hero h1 {
-        font-size: clamp(1.35rem, 7vw, 2.1rem);
+        max-width: 100%;
+        font-size: clamp(1.55rem, 7.7vw, 2.35rem);
+        line-height: 1.16;
+        letter-spacing: 0.02em;
+        white-space: normal;
+        overflow-wrap: normal;
+      }
+      .hero-route {
+        gap: 7px;
+        margin-top: 14px;
+      }
+      .route-pill {
+        padding: 6px 9px;
+        font-size: 0.76rem;
+      }
+      .anime-strip {
+        gap: 7px;
+        margin-top: 12px;
+      }
+      .anime-sticker {
+        padding: 7px 9px;
+        border-radius: 13px;
+        font-size: 0.75rem;
+        gap: 5px;
+      }
+      .anime-sticker small {
+        font-size: 0.66rem;
+      }
+      .hero-poster {
+        padding-top: 6px;
+      }
+      .hero-poster picture {
+        width: min(100%, 300px);
+      }
+      .hero-poster img {
+        width: 100%;
+        max-height: min(52vh, 450px);
+        border-radius: 20px;
+        box-shadow: 0 18px 32px rgba(28, 102, 149, 0.14);
       }
       .bgm-panel-toggle {
         left: 14px;
@@ -1198,7 +1262,7 @@
       <section class="hero">
         <div class="hero-grid">
           <div class="hero-copy">
-            <h1>夏の旅~青い空と海に会いに行こう</h1>
+            <h1>夏の旅~<wbr>青い空と海に<wbr>会いに行こう</h1>
             <div class="hero-route">
               <span class="route-pill">大阪 3日</span>
               <span class="route-pill">京都 2日</span>
@@ -1222,7 +1286,11 @@
             </div>
           </div>
           <figure class="hero-poster" aria-label="夏日旅行海报">
-            <img src="site-assets/hero-poster.png" alt="夏日旅行海报" loading="eager" decoding="async">
+            <picture>
+              <source media="(max-width: 640px)" srcset="site-assets/hero-poster-mobile.webp" type="image/webp">
+              <source srcset="site-assets/hero-poster-desktop.webp" type="image/webp">
+              <img src="site-assets/hero-poster.png" alt="夏日旅行海报" loading="eager" decoding="async" fetchpriority="high" width="1024" height="1536">
+            </picture>
           </figure>
         </div>
       </section>
