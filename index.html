@@ -535,9 +535,9 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(380px, 0.86fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.76fr);
       gap: clamp(28px, 5vw, 70px);
-      align-items: center;
+      align-items: start;
       min-height: 620px;
     }
     .hero-copy {
@@ -550,9 +550,10 @@
     }
     .hero-poster {
       align-self: stretch;
+      padding-top: 96px;
       margin: 0;
       display: flex;
-      align-items: center;
+      align-items: start;
       justify-content: center;
       position: relative;
     }
@@ -595,12 +596,15 @@
     .hero h1 {
       margin: 0;
       max-width: none;
-      color: #106ea8;
       font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", "Source Han Serif JP", serif;
-      font-size: clamp(2rem, 3.9vw, 3.45rem);
+      font-size: clamp(1.95rem, 3.55vw, 3.2rem);
       line-height: 1.08;
       letter-spacing: 0.04em;
       white-space: nowrap;
+      background: linear-gradient(105deg, #075f9f 0%, #1684c2 42%, #31b8c7 70%, #80d8f5 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       text-shadow: 0 10px 28px rgba(28, 102, 149, 0.15);
     }
     .hero p {
@@ -1078,6 +1082,9 @@
         width: min(100%, 460px);
         max-height: 520px;
       }
+      .hero-poster {
+        padding-top: 18px;
+      }
       .budget-visuals {
         grid-template-columns: 1fr;
       }
@@ -1198,12 +1205,20 @@
               <span class="route-pill">濑户内海 4日</span>
               <span class="route-pill">九州 7日</span>
               <span class="route-pill">福冈返程</span>
+              <span class="route-pill">16天夏旅</span>
+              <span class="route-pill">关西 → 九州</span>
+              <span class="route-pill">海岛轮渡</span>
+              <span class="route-pill">夏日花火</span>
+              <span class="route-pill">温泉火山</span>
             </div>
             <div class="anime-strip" aria-label="动漫巡礼元素">
               <span class="anime-sticker">《夏日重现》<small>友ヶ島</small></span>
               <span class="anime-sticker">《轻音少女》<small>丰乡小学校</small></span>
               <span class="anime-sticker">《吹响吧！上低音号》<small>宇治 / 大吉山</small></span>
               <span class="anime-sticker">《进击的巨人》<small>日田</small></span>
+              <span class="anime-sticker">《玉子市场》<small>出町商店街</small></span>
+              <span class="anime-sticker">Fate/Zero<small>神户北野</small></span>
+              <span class="anime-sticker">《萤火之森》<small>上色见神社</small></span>
             </div>
           </div>
           <figure class="hero-poster" aria-label="夏日旅行海报">
