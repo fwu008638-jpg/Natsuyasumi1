@@ -535,7 +535,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(280px, 0.92fr) minmax(220px, 0.64fr) minmax(300px, 0.92fr);
+      grid-template-columns: minmax(280px, 0.9fr) minmax(280px, 0.86fr) minmax(300px, 0.78fr);
       gap: 22px;
       align-items: end;
     }
@@ -567,7 +567,7 @@
       position: relative;
       z-index: 1;
       display: block;
-      width: min(100%, 300px);
+      width: min(100%, 380px);
       max-height: 520px;
       height: auto;
       object-fit: contain;
@@ -630,6 +630,12 @@
       border: 1px solid rgba(199, 230, 243, 0.92);
       box-shadow: 0 14px 28px rgba(28, 102, 149, 0.08);
       backdrop-filter: blur(10px);
+    }
+    .hero-card-stack {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .hero-card h2 {
       margin: 0 0 12px;
@@ -1044,7 +1050,7 @@
         min-height: auto;
       }
       .hero-poster img {
-        width: min(100%, 320px);
+        width: min(100%, 380px);
         max-height: 420px;
       }
       .budget-visuals {
@@ -1174,10 +1180,7 @@
               <span class="anime-sticker">《进击的巨人》<small>日田</small></span>
             </div>
           </div>
-          <figure class="hero-poster" aria-label="夏日旅行海报">
-            <img src="site-assets/hero-poster.png" alt="夏日旅行海报" loading="eager" decoding="async">
-          </figure>
-          <div>
+          <div class="hero-card-stack">
           <section class="hero-card" aria-label="旅程概览">
             <h2>旅程概览</h2>
             <div class="hero-stats">
@@ -1198,7 +1201,6 @@
                 <span>每日 checklist 可点击记录</span>
               </div>
             </div>
-            <p class="hero-note">适合出发前做总览，也适合旅途中打开网页快速确认当日 checklist、交通 note 和预算汇总。</p>
           </section>
           <section class="hero-card hero-card--anime" aria-label="巡礼亮点">
             <h2>巡礼亮点</h2>
@@ -1209,6 +1211,9 @@
             </ul>
           </section>
           </div>
+          <figure class="hero-poster" aria-label="夏日旅行海报">
+            <img src="site-assets/hero-poster.png" alt="夏日旅行海报" loading="eager" decoding="async">
+          </figure>
         </div>
       </section>
       <section class="budget-dashboard" aria-label="预算仪表盘">
