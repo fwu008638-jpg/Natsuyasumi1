@@ -535,12 +535,46 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.9fr);
+      grid-template-columns: minmax(280px, 0.92fr) minmax(220px, 0.64fr) minmax(300px, 0.92fr);
       gap: 22px;
       align-items: end;
     }
     .hero-copy {
       position: relative;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+    .hero-poster {
+      align-self: stretch;
+      min-height: 520px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-poster::before {
+      content: "";
+      position: absolute;
+      inset: 12% 0;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0));
+      filter: blur(4px);
+    }
+    .hero-poster img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: min(100%, 300px);
+      max-height: 520px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: 0 28px 54px rgba(28, 102, 149, 0.16);
+      background: rgba(255, 255, 255, 0.24);
     }
     .hero-kicker {
       display: inline-flex;
@@ -677,6 +711,103 @@
     .budget-dashboard__total span {
       color: var(--muted);
       font-size: 0.8rem;
+    }
+    .budget-visuals {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0 0 16px;
+    }
+    .budget-visuals--single {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .budget-visuals--single .pie-card {
+      grid-template-columns: 170px minmax(0, 1fr);
+    }
+    .pie-card {
+      display: grid;
+      grid-template-columns: 148px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(199, 230, 243, 0.92);
+      box-shadow: 0 12px 26px rgba(28, 102, 149, 0.06);
+    }
+    .pie-card h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+    .pie-card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+    .pie-chart {
+      width: 148px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.62), 0 14px 28px rgba(28, 102, 149, 0.12);
+    }
+    .pie-chart::after {
+      content: attr(data-label);
+      width: 64%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 10px;
+      background: rgba(255,255,255,0.9);
+      color: #174c73;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.25;
+      box-shadow: 0 8px 18px rgba(28, 102, 149, 0.08);
+    }
+    .pie-chart--segments {
+      background: conic-gradient(
+        #2f9be8 0deg 56.5deg,
+        #ffd166 56.5deg 99.8deg,
+        #46c6a7 99.8deg 183.9deg,
+        #ff8a7a 183.9deg 360deg
+      );
+    }
+    .pie-chart--categories {
+      background: conic-gradient(
+        #2f9be8 0deg 124deg,
+        #46c6a7 124deg 226.8deg,
+        #ffd166 226.8deg 333.5deg,
+        #ff8a7a 333.5deg 360deg
+      );
+    }
+    .pie-legend {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.82rem;
+      color: #285779;
+    }
+    .pie-legend li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      line-height: 1.35;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      background: var(--dot);
+      box-shadow: 0 0 0 4px rgba(223, 245, 255, 0.75);
     }
     .budget-grid {
       display: grid;
@@ -908,6 +1039,17 @@
       .hero-grid {
         grid-template-columns: 1fr;
       }
+      .hero-copy,
+      .hero-poster {
+        min-height: auto;
+      }
+      .hero-poster img {
+        width: min(100%, 320px);
+        max-height: 420px;
+      }
+      .budget-visuals {
+        grid-template-columns: 1fr;
+      }
       .author-email {
         position: static;
         width: min(680px, calc(100% - 28px));
@@ -937,6 +1079,16 @@
       }
       .budget-grid {
         grid-template-columns: 1fr;
+      }
+      .pie-card {
+        grid-template-columns: 1fr;
+      }
+      .budget-visuals--single .pie-card {
+        grid-template-columns: 1fr;
+      }
+      .pie-chart {
+        width: min(100%, 210px);
+        margin: 0 auto;
       }
       .hero-stats {
         grid-template-columns: 1fr;
@@ -1022,6 +1174,9 @@
               <span class="anime-sticker">《进击的巨人》<small>日田</small></span>
             </div>
           </div>
+          <figure class="hero-poster" aria-label="夏日旅行海报">
+            <img src="site-assets/hero-poster.png" alt="夏日旅行海报" loading="eager" decoding="async">
+          </figure>
           <div>
           <section class="hero-card" aria-label="旅程概览">
             <h2>旅程概览</h2>
@@ -1066,6 +1221,21 @@
             <strong>207373 - 241333円</strong>
             <span>约 8900 - 10360 元 / 人</span>
           </div>
+        </div>
+        <div class="budget-visuals budget-visuals--single" aria-label="分段预算占比">
+          <article class="pie-card">
+            <div class="pie-chart pie-chart--segments" data-label="分段占比" aria-hidden="true"></div>
+            <div>
+              <h3>行程分段费用占比</h3>
+              <p>按各预算区间中位数估算，用于快速判断哪一段最吃预算。</p>
+              <ul class="pie-legend">
+                <li><span class="legend-dot" style="--dot:#2f9be8"></span>大阪 3日：约 15.7%</li>
+                <li><span class="legend-dot" style="--dot:#ffd166"></span>京都 2日：约 12.0%</li>
+                <li><span class="legend-dot" style="--dot:#46c6a7"></span>濑户内海 4日：约 23.3%</li>
+                <li><span class="legend-dot" style="--dot:#ff8a7a"></span>九州 7日：约 48.9%</li>
+              </ul>
+            </div>
+          </article>
         </div>
         <div class="budget-grid">
           <article class="budget-card">
@@ -3395,6 +3565,33 @@ JR往返大约 <strong>840円</strong>；</p>
 3）<strong>濑户内海段</strong> 的餐饮和高松早卖巴士票，会带来中等强度的上下浮动；<br>
 4）整体上看，真正把预算拉开的，不是单个门票，而是<strong>九州段交通 + 餐饮 + 住宿</strong> 的叠加。</p>
 </details>
+      <section class="budget-dashboard budget-dashboard--final" aria-label="总费用分类占比">
+        <div class="budget-dashboard__header">
+          <div>
+            <h2>总费用分类占比</h2>
+            <p>放在攻略最后，和正文里的交通、住宿、餐饮、门票总览互相对应；比例按预算区间中位数估算。</p>
+          </div>
+          <div class="budget-dashboard__total">
+            <strong>207373 - 241333円</strong>
+            <span>约 8900 - 10360 元 / 人</span>
+          </div>
+        </div>
+        <div class="budget-visuals budget-visuals--single">
+          <article class="pie-card">
+            <div class="pie-chart pie-chart--categories" data-label="总费用占比" aria-hidden="true"></div>
+            <div>
+              <h3>住宿 / 门票 / 餐饮 / 交通</h3>
+              <p>住宿按 1 CNY ≈ 23.3 JPY 粗算入日元总额；交通由综合总额与其他三类费用反推后校准。</p>
+              <ul class="pie-legend">
+                <li><span class="legend-dot" style="--dot:#2f9be8"></span>交通：约 74240 - 82460円，约 34.4%</li>
+                <li><span class="legend-dot" style="--dot:#46c6a7"></span>住宿：约 60603 - 67593円，约 28.6%</li>
+                <li><span class="legend-dot" style="--dot:#ffd166"></span>餐饮：约 59750 - 72900円，约 29.6%</li>
+                <li><span class="legend-dot" style="--dot:#ff8a7a"></span>门票：约 14980 - 18380円，约 7.4%</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
   </div>
   <button class="bgm-panel-toggle" id="bgm-panel-toggle" type="button" aria-expanded="false" aria-controls="bgm-player" >BGM</button>
