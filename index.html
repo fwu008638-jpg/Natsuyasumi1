@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>夏休み日本旅行攻略</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     :root {
       --bg: #d7f3ff;
@@ -839,6 +840,178 @@
     body.today-filter-active .day-shell.is-today-visible {
       display: block;
     }
+    .route-map-section {
+      margin: 0 0 30px;
+      padding: 22px;
+      border-radius: 28px;
+      border: 1px solid rgba(199, 230, 243, 0.95);
+      background:
+        radial-gradient(circle at 8% 10%, rgba(255, 215, 123, 0.18), transparent 30%),
+        radial-gradient(circle at 92% 0%, rgba(75, 190, 235, 0.2), transparent 30%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(229, 248, 255, 0.78));
+      box-shadow: 0 18px 36px rgba(28, 102, 149, 0.08);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .route-map-section__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 16px;
+    }
+    .route-map-section__header h2 {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      font-size: 1.35rem;
+    }
+    .route-map-section__header h2::before {
+      display: none;
+    }
+    .route-map-section__header p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .route-map-section__header span {
+      flex: 0 0 auto;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #17618d;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(160, 214, 241, 0.86);
+      font-size: 0.8rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+    }
+    .route-map-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+    .trip-route-map {
+      min-height: 560px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(160, 214, 241, 0.86);
+      background:
+        linear-gradient(135deg, rgba(212, 241, 255, 0.9), rgba(255, 250, 226, 0.68));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.45);
+    }
+    .trip-route-map.is-map-unavailable::before {
+      content: "地图底图暂时没有加载成功，但右侧路线列表仍可查看。";
+      display: grid;
+      place-items: center;
+      height: 100%;
+      padding: 24px;
+      color: #476d86;
+      text-align: center;
+    }
+    .route-marker {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffffff, #dff4ff);
+      border: 2px solid #2388d8;
+      color: #17577f;
+      box-shadow: 0 8px 18px rgba(20, 91, 140, 0.24);
+      font-size: 0.62rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .route-marker--airport {
+      border-color: #ff9f43;
+      background: linear-gradient(135deg, #fff7df, #ffffff);
+    }
+    .route-marker--anime {
+      border-color: #ff7fa7;
+      background: linear-gradient(135deg, #fff0f6, #ffffff);
+    }
+    .route-marker--transfer,
+    .route-marker--weather {
+      border-color: #28b8a5;
+      background: linear-gradient(135deg, #e6fff9, #ffffff);
+    }
+    .route-marker--base {
+      border-color: #187bd8;
+    }
+    .route-map-popup strong {
+      display: block;
+      color: #164b70;
+      font-size: 0.98rem;
+      margin-bottom: 2px;
+    }
+    .route-map-popup span {
+      display: inline-block;
+      margin-bottom: 5px;
+      color: #187bd8;
+      font-weight: 800;
+    }
+    .route-map-popup p {
+      margin: 0;
+      color: #4e6f85;
+      line-height: 1.55;
+    }
+    .route-map-list {
+      margin: 0;
+      padding: 12px;
+      border-radius: 24px;
+      border: 1px solid rgba(160, 214, 241, 0.86);
+      background: rgba(255, 255, 255, 0.68);
+      list-style: none;
+      max-height: 560px;
+      overflow: auto;
+      counter-reset: route;
+    }
+    .route-map-list li {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      border-radius: 16px;
+      background: rgba(239, 250, 255, 0.72);
+      border: 1px solid rgba(199, 230, 243, 0.72);
+    }
+    .route-map-list li + li {
+      margin-top: 8px;
+    }
+    .route-map__day {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #17618d;
+      font-size: 0.72rem;
+      font-weight: 900;
+      box-shadow: 0 6px 14px rgba(28, 102, 149, 0.06);
+    }
+    .route-map-list strong {
+      display: block;
+      line-height: 1.35;
+      color: #164b70;
+    }
+    .route-map-list small {
+      display: block;
+      margin-top: 2px;
+      color: #5f7e91;
+      line-height: 1.45;
+    }
+    .route-map-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
     .poster-carousel {
       margin: 0 0 32px;
       padding: 22px;
@@ -1488,6 +1661,15 @@
       .today-mode__controls {
         justify-content: flex-start;
       }
+      .route-map-grid {
+        grid-template-columns: 1fr;
+      }
+      .trip-route-map {
+        min-height: 500px;
+      }
+      .route-map-list {
+        max-height: 360px;
+      }
       .poster-carousel {
         padding: 16px;
         border-radius: 22px;
@@ -1576,6 +1758,26 @@
       .today-mode select,
       .today-mode button {
         width: 100%;
+      }
+      .route-map-section {
+        padding: 16px;
+        border-radius: 22px;
+      }
+      .route-map-section__header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .trip-route-map {
+        min-height: 420px;
+        border-radius: 18px;
+      }
+      .route-map-list {
+        max-height: 300px;
+        border-radius: 18px;
+      }
+      .route-map-list li {
+        grid-template-columns: 52px minmax(0, 1fr);
+        padding: 9px;
       }
       .poster-carousel__stage {
         min-height: 430px;
@@ -1784,6 +1986,7 @@
           </figure>
         </div>
       </section>
+      <section class="route-map-section" aria-label="大致行程地图"><div class="route-map-section__header"><div><h2>大致行程地图</h2><p>按城市和主要跨城节点标注，从关西机场一路到大阪、京都、濑户内海、九州，最后从福冈返程。</p></div><span>Map Route</span></div><div class="route-map-grid"><div id="trip-route-map" class="trip-route-map" role="img" aria-label="日本旅行路线地图"></div><ol class="route-map-list"><li><span class="route-map__day">8.5</span><div><strong>关西机场</strong><small>落地 / JR HARUKA 或普通电车</small></div></li><li><span class="route-map__day">8.5-8.7</span><div><strong>大阪</strong><small>大阪三日据点</small></div></li><li><span class="route-map__day">8.6</span><div><strong>胜尾寺 / 箕面</strong><small>地铁 + 巴士</small></div></li><li><span class="route-map__day">8.6</span><div><strong>大津 / 琵琶湖</strong><small>JR</small></div></li><li><span class="route-map__day">8.7</span><div><strong>加太 / 友ヶ島</strong><small>南海电铁 + 友ヶ島汽船</small></div></li><li><span class="route-map__day">8.8-8.9</span><div><strong>京都</strong><small>JR / 阪急 / 市内交通</small></div></li><li><span class="route-map__day">8.8</span><div><strong>丰乡小学校</strong><small>JR + 近江铁道</small></div></li><li><span class="route-map__day">8.9</span><div><strong>宇治</strong><small>京阪 / JR</small></div></li><li><span class="route-map__day">8.10</span><div><strong>神户 / 姬路</strong><small>JR</small></div></li><li><span class="route-map__day">8.11</span><div><strong>高松</strong><small>三宮BT -&gt; 高松駅高速BT 高速巴士</small></div></li><li><span class="route-map__day">8.12</span><div><strong>尾道</strong><small>跨城移动</small></div></li><li><span class="route-map__day">8.13</span><div><strong>广岛</strong><small>跨城移动 + 夜巴</small></div></li><li><span class="route-map__day">8.14</span><div><strong>博多 / 福冈</strong><small>广岛 -&gt; 博多夜巴</small></div></li><li><span class="route-map__day">8.14</span><div><strong>日田</strong><small>JR 特急 / 普通车</small></div></li><li><span class="route-map__day">8.15-8.16</span><div><strong>熊本</strong><small>九州中段据点</small></div></li><li><span class="route-map__day">8.15</span><div><strong>阿苏 / 高森</strong><small>地方铁路 + 火口线巴士</small></div></li><li><span class="route-map__day">8.16-8.17</span><div><strong>鹿儿岛</strong><small>新干线 / JR</small></div></li><li><span class="route-map__day">8.18</span><div><strong>宫崎</strong><small>鹿儿岛 -&gt; 宫崎</small></div></li><li><span class="route-map__day">8.19-8.20</span><div><strong>福冈 / 福冈机场</strong><small>宫崎 -&gt; 福冈 Phoenix号 / 回国</small></div></li></ol></div><p class="route-map-note">注：这是便于总览的“大致路线图”，点位以城市 / 主要区域为主，不替代当天精确导航。</p></section>
       <section class="budget-dashboard" aria-label="预算仪表盘">
         <div class="budget-dashboard__header">
           <div>
@@ -4243,6 +4446,7 @@ JR往返大约 <strong>840円</strong>；</p>
 <a href="#综合预算总览-交通-住宿-餐饮-门票" title="综合预算总览（交通 + 住宿 + 餐饮 + 门票）">综合预算</a>
     </nav>
   </aside>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     (() => {
       const toggle = document.querySelector('.floating-nav-toggle');
@@ -4295,6 +4499,59 @@ JR往返大约 <strong>840円</strong>；</p>
       });
 
       applyCurrency(localStorage.getItem(key) || 'jpy');
+    })();
+
+    (() => {
+      const mapEl = document.getElementById('trip-route-map');
+      const points = [{"day": "8.5", "name": "关西机场", "lat": 34.4347, "lng": 135.2441, "mode": "落地 / JR HARUKA 或普通电车", "note": "8:40 抵达关西机场，入境后前往大阪。", "kind": "airport"}, {"day": "8.5-8.7", "name": "大阪", "lat": 34.6937, "lng": 135.5023, "mode": "大阪三日据点", "note": "大阪城、天王寺、通天阁、梅田、道顿堀等市内与近郊打卡。", "kind": "base"}, {"day": "8.6", "name": "胜尾寺 / 箕面", "lat": 34.865, "lng": 135.4911, "mode": "地铁 + 巴士", "note": "大阪 Day2 的远郊寺庙主线。"}, {"day": "8.6", "name": "大津 / 琵琶湖", "lat": 35.0179, "lng": 135.8546, "mode": "JR", "note": "琵琶湖花火大会方向，当晚返回大阪。"}, {"day": "8.7", "name": "加太 / 友ヶ島", "lat": 34.2808, "lng": 135.0736, "mode": "南海电铁 + 友ヶ島汽船", "note": "《夏日重现》巡礼与海岛轮渡，受天气和船班影响。", "kind": "anime"}, {"day": "8.8-8.9", "name": "京都", "lat": 35.0116, "lng": 135.7681, "mode": "JR / 阪急 / 市内交通", "note": "岚山、丰乡、伏见稻荷、贵船、出町、宇治等京都两日主线。", "kind": "base"}, {"day": "8.8", "name": "丰乡小学校", "lat": 35.2034, "lng": 136.2309, "mode": "JR + 近江铁道", "note": "《轻音少女 K-ON!》圣地巡礼。", "kind": "anime"}, {"day": "8.9", "name": "宇治", "lat": 34.8844, "lng": 135.7998, "mode": "京阪 / JR", "note": "《吹响吧！上低音号》相关巡礼，大吉山与宇治收尾。", "kind": "anime"}, {"day": "8.10", "name": "神户 / 姬路", "lat": 34.6901, "lng": 135.1955, "mode": "JR", "note": "明石大桥、姬路城、新长田、北野、维纳斯桥与神户港。", "kind": "base"}, {"day": "8.11", "name": "高松", "lat": 34.3428, "lng": 134.0466, "mode": "三宮BT -> 高松駅高速BT 高速巴士", "note": "从关西进入濑户内海段的关键移动日。", "kind": "transfer"}, {"day": "8.12", "name": "尾道", "lat": 34.4089, "lng": 133.2052, "mode": "跨城移动", "note": "坡道、千光寺、濑户内海城市风景。", "kind": "transfer"}, {"day": "8.13", "name": "广岛", "lat": 34.3853, "lng": 132.4553, "mode": "跨城移动 + 夜巴", "note": "广岛市内后，夜间巴士前往博多。", "kind": "transfer"}, {"day": "8.14", "name": "博多 / 福冈", "lat": 33.5904, "lng": 130.4017, "mode": "广岛 -> 博多夜巴", "note": "九州段入口，夜巴抵达后前往日田。", "kind": "transfer"}, {"day": "8.14", "name": "日田", "lat": 33.3213, "lng": 130.9409, "mode": "JR 特急 / 普通车", "note": "《进击的巨人》相关巡礼后继续前往熊本。", "kind": "anime"}, {"day": "8.15-8.16", "name": "熊本", "lat": 32.8031, "lng": 130.7079, "mode": "九州中段据点", "note": "熊本城、市内餐饮，以及阿苏方向出发点。", "kind": "base"}, {"day": "8.15", "name": "阿苏 / 高森", "lat": 32.8844, "lng": 131.103, "mode": "地方铁路 + 火口线巴士", "note": "强天气与强时刻表日，火山口开放和地方交通都要二次确认。", "kind": "weather"}, {"day": "8.16-8.17", "name": "鹿儿岛", "lat": 31.5966, "lng": 130.5571, "mode": "新干线 / JR", "note": "鹿儿岛中央、樱岛、黑猪肉、回转寿司与市内交通券。", "kind": "base"}, {"day": "8.18", "name": "宫崎", "lat": 31.9077, "lng": 131.4202, "mode": "鹿儿岛 -> 宫崎", "note": "九州后段大移动，晚餐与住宿安排需要留出缓冲。", "kind": "transfer"}, {"day": "8.19-8.20", "name": "福冈 / 福冈机场", "lat": 33.5859, "lng": 130.4506, "mode": "宫崎 -> 福冈 Phoenix号 / 回国", "note": "中午前后抵达福冈，8.20 晚上从福冈机场回国。", "kind": "airport"}];
+      if (!mapEl || !Array.isArray(points) || !points.length) return;
+
+      if (!window.L) {
+        mapEl.classList.add('is-map-unavailable');
+        return;
+      }
+
+      const map = L.map(mapEl, {
+        scrollWheelZoom: false,
+        zoomControl: true,
+      });
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 12,
+        attribution: '&copy; OpenStreetMap contributors',
+      }).addTo(map);
+
+      const latLngs = points.map((point) => [point.lat, point.lng]);
+      L.polyline(latLngs, {
+        color: '#187bd8',
+        weight: 4,
+        opacity: 0.78,
+        dashArray: '8 8',
+      }).addTo(map);
+
+      points.forEach((point, index) => {
+        const marker = L.marker([point.lat, point.lng], {
+          icon: L.divIcon({
+            className: `route-marker route-marker--${point.kind || 'normal'}`,
+            html: `<span>${point.day}</span>`,
+            iconSize: [34, 34],
+            iconAnchor: [17, 17],
+          }),
+          title: `${point.day} ${point.name}`,
+        }).addTo(map);
+
+        marker.bindPopup(
+          `<div class="route-map-popup">` +
+            `<span>${index + 1} / ${points.length} · ${point.day}</span>` +
+            `<strong>${point.name}</strong>` +
+            `<p>${point.mode}</p>` +
+            `<p>${point.note}</p>` +
+          `</div>`
+        );
+      });
+
+      map.fitBounds(latLngs, { padding: [28, 28] });
+      window.setTimeout(() => map.invalidateSize(), 300);
     })();
 
     (() => {
